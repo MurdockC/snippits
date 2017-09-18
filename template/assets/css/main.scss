@@ -1,0 +1,298 @@
+$white: white;
+$light: #E0E0E0;
+$dark: #424242;
+$black: #212121;
+$primary-color: #6F36FF;
+$secondary-color: #8b63f2;
+$contrast-color: #FF8BAE;
+
+@mixin for-phone-only {
+	@media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+	@media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+	@media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+	@media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+	@media (min-width: 1800px) { @content; }
+}
+
+
+//Type
+h1 {font-size: 3em; line-height: 1.1em; margin: 0px;}
+h2 {font-size: 2em; line-height: 1.1em; margin: 0px;}
+p {font-size: 16px; line-height: 1.1em; margin: 0px;}
+
+// Globals
+// Fonts
+html * {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+// Modifiers
+.centered_Text {
+  text-align: center;
+}
+
+
+// Module Compositions
+.primary_Bg {
+  background-color: $primary-color;
+  color: $white;
+}
+
+.light_Bg {
+  background-color: $light;
+  color: $dark;
+}
+
+.gradient_Bg {
+  background: $primary-color;
+  background: linear-gradient(90deg, $primary-color, $secondary-color);
+}
+
+// Basic Flex Compositions
+.flex_Wrap-row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.flex_Wrap-column {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+
+
+a {
+  text-decoration: none;
+}
+.campaign {
+  background-image: url("..//images/header-bg.jpg");
+  background-size: cover;
+  min-height: 400px;
+}
+
+.campain_Text-container {
+  color: $white;
+  display: flex;
+  justify-content: center;
+	padding-bottom: 0px;
+}
+
+
+.header_Callout-p {
+  color: $white;
+}
+
+.container_Fullwidth {
+  display:flex;
+  width: 100vw;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container_960 {
+  @extend .flex_Wrap-row;
+  max-width: 960px;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.column {
+  display: flex;
+  flex-flow: column wrap;
+  flex: 1 0 300px;
+  margin: 10px 40px;
+  padding: 20px;
+}
+
+
+
+// Nav
+
+
+
+.nav_Button {
+  flex: 0 1 auto;
+  color: $white;
+  padding: 10px;
+  margin: 108px;
+  border: 2px solid $white;
+}
+
+
+
+.footer {
+  height: 50px;
+  background-color: pink;
+}
+
+.button_Container {
+  display: flex;
+  flex-flow: row wrap;
+	justify-content:space-between;
+
+}
+.button {
+	flex: 1 0 auto;
+  padding: 10px;
+  margin: 10px 0px;
+	text-align: center;
+}
+
+.button_Primary {
+  @extend .button;
+  background-color: $contrast-color;
+  color: $white;
+}
+.button_Secondary {
+  @extend .button;
+  color: white;
+  background-color: rgba(255,255,255, 0.5);
+  border: 2px solid $white;
+}
+
+.img_Container {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+// Base Styles
+body {
+  background-color: $primary-color;
+  color: $secondary-color;
+  font-family: 'Oswald', sans-serif;
+  line-height: 2em;
+  text-transform: uppercase;
+}
+
+
+
+
+
+.nav {
+	width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
+}
+
+.logo_Container {
+  height: 100px;
+  width: 100px;
+}
+
+.logo {
+  height: 100%;
+  width: 100%;
+}
+
+.nav_Anchor-wrapper {
+  display: flex;
+  text-align: center;
+  color: white;
+}
+
+.nav_Button {
+  width: 50px;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 3px solid white;
+  overflow: hidden;
+}
+
+.burger_Bar {
+  width: 100%;
+  margin: 3px 0px;
+  height: 10px;;
+  background-color: white;
+  transform: none;
+}
+
+.hidden {
+  visibility: none;
+  display: none;
+  flex-direction: column;
+  background-color: #F06292;
+  height: 100vh;
+  align-content: flex-start;
+}
+
+.hidden_Button {
+  display: flex;
+  height: 100px;
+  background-color: #F06292;
+  border-bottom: 5px solid #c95079;
+  text-align: center;
+  color: white;
+  align-items: center;
+  justify-content: center;
+
+}
+
+//Form
+
+.form_Container {
+  display: flex;
+  flex-flow: column wrap;
+  text-align: center;
+}
+
+.form_Column {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 40px;
+  flex: 1 0 auto;
+	text-align: left;
+}
+
+.form_Column-row {
+  display: flex;
+  flex-flow: row wrap;
+}
+.form_Input {
+  margin: 0px 0px;
+	height: 30px;
+	padding: 15px;
+}
+
+.form_Label {
+
+}
+
+.button_Submit {
+  background-color: green;
+  padding: 20px;
+  max-width: 300px;
+  align-self: center;
+}
+
+.radio_Button {
+	background-color: blue;
+	width: 200px;
+	padding: 30px;
+	margin: 10px;
+}
+
+input[type="radio"],
+input[type="checkbox"]{
+  display: none;
+}

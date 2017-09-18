@@ -1,0 +1,293 @@
+h1 {
+  font-size: 3em;
+  line-height: 1.1em;
+  margin: 0px; }
+
+h2 {
+  font-size: 2em;
+  line-height: 1.1em;
+  margin: 0px; }
+
+p {
+  font-size: 16px;
+  line-height: 1.1em;
+  margin: 0px; }
+
+html * {
+  font-family: 'Roboto', sans-serif; }
+
+.centered_Text {
+  text-align: center; }
+
+.primary_Bg {
+  background-color: #6F36FF;
+  color: white; }
+
+.light_Bg {
+  background-color: #E0E0E0;
+  color: #424242; }
+
+.gradient_Bg {
+  background: #6F36FF;
+  background: -webkit-gradient(linear, left top, right top, from(#6F36FF), to(#8b63f2));
+  background: linear-gradient(90deg, #6F36FF, #8b63f2); }
+
+.flex_Wrap-row, .container_960 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap; }
+
+.flex_Wrap-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap; }
+
+a {
+  text-decoration: none; }
+
+.campaign {
+  background-image: url("..//images/header-bg.jpg");
+  background-size: cover;
+  min-height: 400px; }
+
+.campain_Text-container {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 0px; }
+
+.header_Callout-p {
+  color: white; }
+
+.container_Fullwidth {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden; }
+
+.container_960 {
+  max-width: 960px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  overflow: hidden; }
+
+.column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 300px;
+          flex: 1 0 300px;
+  margin: 10px 40px;
+  padding: 20px; }
+
+.nav_Button {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+  color: white;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid white; }
+
+.footer {
+  height: 50px;
+  background-color: pink; }
+
+.button_Container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+
+.button, .button_Primary, .button_Secondary {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  padding: 10px;
+  margin: 10px 0px;
+  text-align: center; }
+
+.button_Primary {
+  background-color: #FF8BAE;
+  color: white; }
+
+.button_Secondary {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid white; }
+
+.img_Container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden; }
+
+body {
+  background-color: #6F36FF;
+  color: #8b63f2;
+  font-family: 'Oswald', sans-serif;
+  line-height: 2em;
+  text-transform: uppercase; }
+
+.nav {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 40px; }
+
+.logo_Container {
+  height: 100px;
+  width: 100px; }
+
+.logo {
+  height: 100%;
+  width: 100%; }
+
+.nav_Anchor-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  color: white; }
+
+.nav_Button {
+  width: 50px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  border: 3px solid white;
+  overflow: hidden; }
+
+.burger_Bar {
+  width: 100%;
+  margin: 3px 0px;
+  height: 10px;
+  background-color: white;
+  -webkit-transform: none;
+          transform: none; }
+
+.hidden {
+  visibility: none;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #F06292;
+  height: 100vh;
+  -ms-flex-line-pack: start;
+      align-content: flex-start; }
+
+.hidden_Button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100px;
+  background-color: #F06292;
+  border-bottom: 5px solid #c95079;
+  text-align: center;
+  color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+.form_Container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  text-align: center; }
+
+.form_Column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  padding: 40px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  text-align: left; }
+
+.form_Column-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap; }
+
+.form_Input {
+  margin: 0px 0px;
+  height: 30px;
+  padding: 15px; }
+
+.button_Submit {
+  background-color: green;
+  padding: 20px;
+  max-width: 300px;
+  -ms-flex-item-align: center;
+      align-self: center; }
+
+.radio_Button {
+  background-color: blue;
+  width: 200px;
+  padding: 30px;
+  margin: 10px; }
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: none; }
