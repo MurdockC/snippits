@@ -3,37 +3,37 @@
 	    // Company Information goes here
 
 		// Full url
-		protected static $url = 'http://template.com/'; 
+		protected static $url = 'http://localhost:8080/';
 
 		// Set Company Name for Page Titles
-		protected static $title = 'JBS Carriers';
+		protected static $title = 'Template Company';
 
 	    // Set Default Source here - no spaces - domain
-		protected static $company  = 'joinjbscarriers.com';
+		protected static $company  = 'http://localhost:8080/';
 
 		// Set Cookie Name, just the url, with no http: or .com etc --- And No Spaces
-		protected static $name = 'joinjbscarriers';
+		protected static $name = 'template';
 
 		// Default Phone number
-		protected static $phone = '888.462.8770';
+		protected static $phone = '000.000.0000';
 
 		// Tenstreet ID (Request from Tenstreet tech support)
-		protected static $tenstreet = '1269';
+		protected static $tenstreet = '';
 
 		// Purely for display in the Email subject line. Capitalize the first letter of each word in the URL.
-		protected static $siteName = 'JoinJBSCarriers.com';
+		protected static $siteName = 'template.com';
 
 		//Leave blank if they do not want the short forms emailed to them
 		protected static $notify = '';
 
 		// Client Key for the ZipCode API
-		protected static $zipAPIKey = 'js-FVNVVCGyRzeKDSp59NdzjjIScZtCqCA6xo1t0I2SihDW921iQfSayA3LAwo09Y7H';
+		protected static $zipAPIKey = '';
 
 		// Set application link
-		protected static $application = "https://intelliapp.driverapponline.com/c/jbscarriers";
+		protected static $application = "";
 
 		// GID for google phone # sheet
-		protected static $gid = '1816293935';
+		protected static $gid = '';
 
 		// Set URL Parameter Name here
 		protected static $param = 'utm_source';

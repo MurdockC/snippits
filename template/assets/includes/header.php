@@ -8,29 +8,33 @@
 	$app = source::getApplication();
 	$company = source::getTitle();
 ?>
-<html>
-<head>
-	
-</head>
-<body>
+<html lang="en">
 
-<header>
-	<section class="otr-campaign">
-		<div class="container_nav">
-			<div class="container_nav--padding">
-				<a href="<?php echo $siteURL; ?>"><img class="logo" src="<?php echo $siteURL; ?>assets/images/logo.png" /></a>
-				<a class="phoneIcon" href="tel:<?php echo $phone; ?>"><i class="fa fa-phone" aria-hidden="true"></i></a>
-				<a class="phone" href="tel:<?php echo $phone; ?>"><p>Call Us!</p><span> <?php echo $phone; ?></span></a>
-			</div>
-		</div>
-		<div class="container">
-			<div class="campaign">
-				<h1>Want to build a strong driving job?<br> Load up with protein.</h1>
-				<p>Protein-power your job by joining JBS. As the transportation arm of the world’s leading meat processor, our truck drivers help feed America and enjoy the strength that comes with it.</p>
-				<a href="#questions" class="button button-primary">Be Contacted!</a>
-				<a href="<?php echo $app; ?>?r=<?php echo $origin; ?>" class="button-secondary">Or Fill Out Our Full Application</a>
-			</div>
-			<div class="hidden-on-mobile">&nbsp;<br><!--<img src="<?php echo $siteURL; ?>assets/images/truck.png">--></div>
-		</div>
-	</section>
-</header>
+<head>
+	<!-- Google Tag Manager -->
+
+		<link rel="shortcut icon" href="<?php echo $siteURL; ?>favicon.ico?v=2">
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+    <script type="text/javascript" href="assets/js/main.js"></script>
+		<title><?php echo $siteTitle; ?> | <?php echo $pageTitle; ?> | <?php echo $phone; ?></title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+		<script type="text/javascript">
+				function doThis() {
+						var hidden = document.getElementById('mobile-hide');
+						var menu = document.getElementById('thisContent');
+						if (menu.style.display === 'none') {
+								menu.style.display = 'flex';
+								hidden.style.display = 'none';
+
+						} else {
+								menu.style.display = 'none';
+								hidden.style.display = 'block';
+						}
+				}
+		</script>
+	</head>
+	<body>

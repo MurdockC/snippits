@@ -1,118 +1,114 @@
 
+<?php
+	//SETS PAGE INFO AT THE TOP OF THE HEADER
+	$pageTitle = "Home";
+	$pageName = "home";
 
-<html>
-<head>
-	<link rel="stylesheet" type-="text/css" href="/assets/css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
-	<script  type="text/javascript" href="/assets/js/main.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-</head>
+	include('assets/includes/header.php');
+?>
+<header>
+		    <div class="container-full-width primary-bg flex centered-contents padding-lg">
+		        <div class="container-1200 flex nav">
+		            <img class="logo" src="assets/images/logo.png" alt="Company Logo">
+		            <span class="desktop-hidden flex">
+									<a onclick="doThis()">
+										<div class="nav-icon-container flex">
+											<div class="nav-icon-text">
+													Menu
+											</div>
+											<div class="nav-icon">
+													<div class="icon-bar"></div>
+													<div class="icon-bar"></div>
+													<div class="icon-bar"></div>
+											</div>
+									</div>
+		            </a>
+							</span>
+							<span class="desktop-visible">
+								<a href="#">
+		                <button class="button-secondary flex centered-contents padding-md margin-sm">Company Driver</button>
+		            </a>
+		            <a href="#">
+		                <button class="button-secondary flex centered-contents padding-md margin-sm">Owner Operator</button>
+		            </a>
+							</span>
+		        </div>
+		    </div>
+		    <!-- below content is hidden until hamburger button is pushed -->
+		    <div id="thisContent" class="mobile-nav flex-column-sm ">
+		        <a href="#">
+		            <div class="button-mobile-nav flex centered-contents padding-lg margin-sm">One</div>
+		        </a>
+		        <a href="#">
+		            <div class="button-mobile-nav flex centered-contents padding-lg margin-sm">Two</div>
+		        </a>
+		        <a href="#">
+		            <div class="button-mobile-nav flex centered-contents padding-lg margin-sm">Three</div>
+		        </a>
+		    </div>
 
-<body>
-	<header class="container_Fullwidth gradient_Bg">
-<div class="nav container_960">
-  <div class="logo_Container">
-    <img class="logo" src="assets/images/logo.png">
-  </div>
-  <a onclick="showMobileNav()" class="nav_Anchor-wrapper" href"#">
-  <div class="nav_Button">
-    <div class="burger_Bar"></div>
-    <div class="burger_Bar"></div>
-    <div class="burger_Bar"></div>
-  </div></a>
-</div>
+		    <!-- this div becomes hidden while viewing mobile nav -->
+		    <section id="campaign" class="container-fullwidth campaign-bg flex centered-contents">
+		        <div class="container-1200 flex  margin-tb-lg">
+		            <div class="flex margin-lg flex-column-sm white-text">
+		                <h1 class="margin-lg self-start margin-tb-sm">You could work here.</h1>
+		                <h2 class="margin-lg self-start margin-tb-sm ">I guess.</h2>
+		                <p class="self-start margin-lg margin-tb-md">The pay is okay, and sometimes Jim brings donuts.</p>
+		                <button class="button button-primary margin-lg margin-tb-sm">Apply Now!</button>
+		                <button class="button button-secondary margin-lg margin-tb-sm">Be Contacted!</button>
+		            </div>
+		            <div class="flex margin-lg flex-column-sm centered-contents">
+		                <img class="truck" src="assets/images/truck.png" alt="Truck">
+		            </div>
+		        </div>
+		    </section>
+		</header>
 
-<div id="mobile_Nav--expanded" class="hidden">
-  <div class="hidden_Button">Company Drivers</div>
-  <div class="hidden_Button">Owner Operators</div>
-</div>
+		<div id="mobile-hide">
+		    <section id="body-content" class="container-full-width light-bg centered-contents flex">
+		        <div class="container-1200 flex wrap">
+		            <div class="flex margin-lg flex-column-sm">
+		                <h2 class="margin-lg margin-tb-sm self-start">Benefits</h2>
+		                <p class="self-start margin-lg">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+		            </div>
+		            <div class="flex margin-lg flex-column-sm">
+		                <h2 class="margin-lg margin-tb-sm self-start">Pay</h2>
+		                <ul class="margin-tb-sm">
+		                    <li class="margin-tb-lg self-start">
+		                        <h2>Money</h2>
+		                    </li>
+		                    <li class="margin-tb-lg self-start">
+		                        <h2>Bonus</h2>
+		                    </li>
+		                    <li class="margin-tb-lg self-start">
+		                        <h2>Sign-On Bonus</h2>
+		                    </li>
+		                    <li class="margin-tb-lg self-start">
+		                        <h2>Benefits</h2>
+		                    </li>
+		                    <li class="margin-tb-lg self-start">
+		                        <h2>Etc.</h2>
+		                    </li>
+		                </ul>
+		            </div>
+		        </div>
+		    </section>
 
+		    <section id="form" class="container-full-width alt-bg centered-contents padding-tb-xl flex flex-column">
+					<?php include ('assets/forms/form.php'); ?>
+		    </section>
 
-	</header>
-
-	<div class="container_Fullwidth campaign">
-		<div class="container_960">
-			<div class="column campain_Text-container">
-				<h1>Come Work Here.</h1>
-				<h2>It's alright, I guess.</h2>
-				<p class="header_Callout-p">The pay is ok, and Rick occasionally brings donuts.</p>
-					<div class="button_Container">
-						<div class="button_Primary">Apply now!</div>
-						<div class="button_Secondary">Fill Out Our Short Form</div>
-					</div>
-			</div>
-			<div class="column img_Container">
-				<img src="assets/images/truck.png" alt="Black Mac Truck">
-			</div>
+		    <section id="secondary-content" class="container-full-width light-bg centered-contents flex">
+		        <div class="container-960 flex wrap">
+		            <div class="flex margin-lg  flex-column-sm">
+		                <h2 class="margin-lg ">About</h2>
+		                <div class="flex-column-sm">
+		                    <p class="self-start margin-lg">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+		                </div>
+		            </div>
+		        </div>
+		    </section>
+				<?php include ('assets/includes/footer.php'); ?>
 		</div>
-	</div>
-
-	<div class="container_Fullwidth light_Bg">
-		<div class="container_960">
-			<div class="column centered_Text">
-				<h1 class="column_Title">Hello World</h1>
-				<p class="column_Paragraph">as;k as;ks;loijfhuggd hfuidhfuagh aiduhfiuhf  asidhfiuhasdf asudhfiu fhiasdufhaiu</p>
-			</div>
-			<div class="column centered_Text">
-				<h1 class="column_Title">Hello World</h1>
-				<p class="column_Paragraph">as;k as;ks;loijfhuggd hfuidhfuagh aiduhfiuhf  asidhfiuhasdf asudhfiu fhiasdufhaiu</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="container_Fullwidth gradient_Bg">
-		<div class="container_960">
-			<div class="column">
-				<div class="form_Container">
-					<h3 class="">Hello World</h3>
-					<div class="form_Column-row">
-						<form class="form_Column">
-							<label class="form_Label" for="firstName">First Name</label>
-							<input class="form_Input" type="text" name="firstname" placeholder="First Name">
-							<label class="form_Label" for="lastName">Last Name</label>
-							<input class="form_Input" type="text" name="lastname" placeholder="Last Name">
-							<label class="form_Label" for="email">Email Address</label>
-							<input class="form_Input" type="text" name="email" placeholder="Email Address">
-							<label class="form_Label" for="phoneNumber">Phone Number</label>
-							<input class="form_Input" type="text" name="phone" placeholder="Phone Number">
-							<label class="form_Label" for="cdl">Do you have a CDL?</label>
-
-							<section id="first" class="section">
-    <div class="container">
-      <input type="radio" name="group1" id="radio-1">
-      <label for="radio-1"><span class="radio">Coffee</span></label>
-    </div>
-    <div class="container">
-      <input type="radio" name="group1" id="radio-2">
-      <label for="radio-2"><span class="radio">Tea</span></label>
-    </div>
-    <div class="container">
-      <input type="radio" name="group1" id="radio-3">
-      <label for="radio-3"><span class="radio">Cappuccino</span></label>
-    </div>
-</section>
-
-
-
-
-							<input  class="radio_Button" type="radio" name="cdl" value="yes">Yes
-							<input class="radio_Button" type="radio" name="cdl" value="no">No
-							<div class="button button_Submit button_Primary">Submit</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<footer class="footer container_Fullwidth">
-		<div class="centered_Text">
-			<p>Hello World</p>
-			<small><?php echo $company ?> is an Equal Opportunity Employer</small><br>
-			<small><?php echo "&copy; " . date("Y"); ?> <?php echo $company ?> | <a href="/privacy">Privacy</a></small>
-		</div>
-	</footer>
-
-
-</body>
+	</body>
 </html>

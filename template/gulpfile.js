@@ -3,6 +3,8 @@ var gulp = require('gulp'),
 	php = require('gulp-connect-php'),
 	autoprefixer = require('gulp-autoprefixer');
 	browserSync = require('browser-sync');
+	cleanCSS = require('gulp-clean-css');
+
 
 gulp.task('sass', function() {
 	return gulp.src('assets/css/*.scss')
@@ -10,6 +12,7 @@ gulp.task('sass', function() {
 		.pipe(autoprefixer({
       browsers: ['last 2 versions']
     }))
+		.pipe(cleanCSS({compatibility: 'ie8'}))
 		.pipe(gulp.dest('assets/css/'))
 		.pipe(browserSync.reload({stream: true}));
 });
