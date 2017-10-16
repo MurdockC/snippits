@@ -1,7 +1,7 @@
-<div class="container-full-width">
-	<h2 class="margin-sm">Be Contacted</h2>
+<div class="container full-width text-center">
+	<h2 class="margin-sm form-title">Be Contacted</h2>
 </div>
-<div class="container-1200 flex wrap">
+<div class="container width-1200 flex wrap">
 		<div class="flex margin-lg flex-column-sm">
 				<label class="form-label" for="firstname">First & Last Name</label>
 				<input tabindex="3"  type="text" name="name" autocorrect="off" autocapitalize="sentences" title="Please enter your first & last name." placeholder="Enter your First & Last Name" $ pattern="(?=.*\w)^(\w|')+\s+(\w|')+(\s+(\w|')+)*\s?$" required> <!--pattern="^\w+\s+\w+(\s+\w+)*\s?$"-->
@@ -49,6 +49,6 @@
 					<input type="hidden" name="location" value="<?php echo $city; ?>,<?php echo $state; ?>">
 					<input type="hidden" name="division" value="<?php echo $pageTitle;?>">
 					<input type="hidden" name="jobid" value="<?php echo $jobID; ?>">
-				<button class="button-submit margin-lg self-centered">Contact Me!</button>
+				<button class="button-primary padding-md full-width margin-lg self-centered">Contact Me!</button>
 		</div>
 </div>

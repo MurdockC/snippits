@@ -1,21 +1,16 @@
-
-
-
-<footer class="primary-bg container-full-width centered-contents flex padding-md">
-		<div class="container-1200 margin-lg">
-			<h4 class="margin-sm"><button id="footerapply" class="button button-secondary" href="<?php echo $app; ?>?r=<?php echo $origin; ?>">Apply Now!</button><span> - OR - </span><button class="button button-secondary" href="tel:<?php echo $phone; ?>">Call <?php echo $phone; ?></button></h4><br>
+<footer class="primary-bg container full-width centered-contents flex padding-md">
+		<div class="container width-1200 centered-contents text-center margin-lg">
+			<h4 class="margin-sm"><button id="footerapply" class="button button-secondary-light" href="<?php echo $app; ?>?r=<?php echo $origin; ?>">Apply Now!</button><span> - OR - </span><button class="button button-secondary-light" href="tel:<?php echo $phone; ?>">Call <?php echo $phone; ?></button></h4><br>
 <small class"margin-sm"><?php echo $company ?> is an Equal Opportunity Employer</small><br>
-<small><?php echo "&copy; " . date("Y"); ?> <?php echo $company ?> | <a href="/privacy">Privacy</a></small>
+<small><?php echo "&copy; " . date("Y"); ?> <?php echo $company ?> | <a href="/privacy.php">Privacy</a></small>
 </div>
 
-
-<div class="mobile-nav-footer container container-full-width flex">
-	<div class="flex flex-column mobile-nav-button padding-md centered-contents"><a href="#top"><i class="fa fa-home" aria-hidden="true"></i><br></a></div>
-	<div class="flex flex-column mobile-nav-button padding-md centered-contents"><a href="tel:<?php echo $phone; ?>"><i class="fa fa-phone" aria-hidden="true"></i><br></a></div>
-	<div class="flex flex-column mobile-nav-button padding-md centered-contents"><a href="<?php echo $app; ?>?r=<?php echo $origin; ?>"><i class="fa fa-plus-circle" aria-hidden="true"></i><br></a></div>
-	<div class="flex flex-column mobile-nav-button apply-button centered-contents"><a href="#quickApp"><i class="fa fa-sign-in" aria-hidden="true"></i><br></a></div>
+<div class="mobile-nav-footer container container full-width flex">
+	<div class="flex flex-column mobile-footer-button padding-md centered-contents"><a href="#top"><i class="fa fa-home" aria-hidden="true"></i><br>Home</a></div>
+	<div class="flex flex-column mobile-footer-button padding-md centered-contents"><a href="tel:<?php echo $phone; ?>"><i class="fa fa-phone" aria-hidden="true"></i><br>Call Us!</a></div>
+	<div class="flex flex-column mobile-footer-button padding-md centered-contents"><a href="<?php echo $app; ?>?r=<?php echo $origin; ?>"><i class="fa fa-plus-circle" aria-hidden="true"></i><br>Benefits!</a></div>
+	<div class="flex flex-column mobile-footer-button mobile-footer-apply centered-contents contrast-bg flex2"><a href="#quickApp"><i class="fa fa-sign-in" aria-hidden="true"></i><br>Apply Now!</a></div>
 </div>
-
 
 <script type="text/javascript">
 	//<![CDATA[
@@ -35,7 +30,6 @@
 				});
 			});
 		});
-
 
 		// zipcode api key is set to a cookie, use this function to get the cookie's value
 		function getCookie(name) {
@@ -134,9 +128,7 @@
 		  header.classList.toggle("height-auto");
 		});
 
-
 	//]]>
-
 	// AppNav Show/Hide functions
 	$(function(){
 		$(".showhide").show();
@@ -148,17 +140,14 @@
 		        $("." + method + ".showhide").width("100%");
 		        //return false;
 		    });
-
 		});
 		$("a.header-toggle").click(function () {
 		    $(".showhide").slideDown("fast");
 		    //return false;
 		});
 	});
-
 //]]>
-
-ß</script>
+</script>
 
 </div>
 </footer>

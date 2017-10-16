@@ -3,16 +3,16 @@
 	    // Company Information goes here
 
 		// Full url
-		protected static $url = 'http://localhost:8080/';
+		protected static $url = 'http://localhost:8081/';
 
 		// Set Company Name for Page Titles
-		protected static $title = 'Template Company';
+		protected static $title = 'Doung Andrus';
 
 	    // Set Default Source here - no spaces - domain
-		protected static $company  = 'http://localhost:8080/';
+		protected static $company  = 'http://localhost:8081/';
 
 		// Set Cookie Name, just the url, with no http: or .com etc --- And No Spaces
-		protected static $name = 'template';
+		protected static $name = 'DoungAndrus';
 
 		// Default Phone number
 		protected static $phone = '000.000.0000';
@@ -21,7 +21,7 @@
 		protected static $tenstreet = '';
 
 		// Purely for display in the Email subject line. Capitalize the first letter of each word in the URL.
-		protected static $siteName = 'template.com';
+		protected static $siteName = 'dougandrusdrivingjobs.com';
 
 		//Leave blank if they do not want the short forms emailed to them
 		protected static $notify = '';
