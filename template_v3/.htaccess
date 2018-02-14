@@ -1,0 +1,61 @@
+<Files .htaccess>
+	order allow,deny
+	deny from all
+</Files>
+
+Options +FollowSymlinks
+
+RewriteEngine On
+
+RewriteBase /
+
+# ignore extension
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ /$1.php [L,QSA]
+
+# remove www
+RewriteCond %{HTTP_HOST} ^www.dougandrusdrivingjobs.com [NC]
+RewriteRule ^(.*)$ http://dougandrusdrivingjobs.com/$1 [L,R=301]
+
+# redirects
+Redirect 301 /hiringevent http://dougandrusdrivingjobs.com/jobfair?utm_source=newspaper&utm_medium=newspaper&utm_campaign=newspaper
+
+# block referrer spam
+RewriteCond %{HTTP_REFERER} free\-share\-buttons\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} Get\-Free\-Traffic\-Now\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} sanjosestartups\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} event\-tracking\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} free\-social\-buttons\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} guardlink\.org [NC,OR]
+RewriteCond %{HTTP_REFERER} darodar\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} xtopoly\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} dnsrsearch\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} mnetads\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} search\-error\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} findwide\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} searchlock\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} uni\.me [NC,OR]
+RewriteCond %{HTTP_REFERER} buy\-cheap\-online\.info [NC,OR]
+RewriteCond %{HTTP_REFERER} torture\.ml [NC,OR]
+RewriteCond %{HTTP_REFERER} blogspot\.in [NC,OR]
+RewriteCond %{HTTP_REFERER} weburlopener\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} 4webmasters\.org [NC,OR]
+RewriteCond %{HTTP_REFERER} best\-seo\-offer\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} buttons\-for\-your\-website\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} hol\.es [NC,OR]
+RewriteCond %{HTTP_REFERER} webmaster\-traffic\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} profound\.net [NC,OR]
+RewriteCond %{HTTP_REFERER} ilovevitaly\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} domination\.ml [NC,OR]
+RewriteCond %{HTTP_REFERER} redtube\-talk\.ga [NC,OR]
+RewriteCond %{HTTP_REFERER} similarweb\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} semalt\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} iminent\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} trafficmonetize\.org [NC,OR]
+RewriteCond %{HTTP_REFERER} trafficmonetize\.net [NC,OR]
+RewriteCond %{HTTP_REFERER} webmonetizer\.net [NC,OR]
+RewriteCond %{HTTP_REFERER} 100dollars-seo\.com [NC,OR]
+RewriteCond %{HTTP_REFERER} inbox\.com [NC]
+RewriteRule .* - [F]

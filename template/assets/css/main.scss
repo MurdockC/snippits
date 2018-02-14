@@ -9,22 +9,20 @@
 // State Rules "states of the modules"
 // Responsive
 
-
-
 //Theme Variables --------------------------------------------------------------
 
 $white: white;
 $light: #E0E0E0;
 $dark: #424242;
 $black: #212121;
-$primary-color: #CA0018;
-$secondary-color: #79000e;
-$contrast-color: #77e627;
+$primary-color: #e8420e;
+$secondary-color: #e8420e;
+$contrast-color: #76C6DE;
 $alt-color: #FF8BAE;
 
 $base-space-unit: .5rem;
 
-$primary-font: 'Roboto' , sans-serif;
+$primary-font: 'Raleway' , sans-serif;
 
 
 @mixin for-phone-only {
@@ -52,7 +50,10 @@ $primary-font: 'Roboto' , sans-serif;
 box-sizing: border-box;
 text-decoration: none;
 }
-
+a {
+	color: white;
+	text-decoration: none;
+}
 html * {
   font-family: $primary-font;
 	font-size: 16px;
@@ -71,7 +72,7 @@ h1 {
 	font-size: 1.5em;
 	line-height: .9em;
 	@include for-tablet-landscape-up {
-		font-size: 4.5em;
+		font-size: 3.5em;
 		line-height: .9em;
 	}
 }
@@ -157,8 +158,8 @@ align-items: stretch;
 }
 
 .width-1200 {
-	width: 1200px;
-  max-width: 100%;
+	width: 100%;
+	max-width: 1200px;
 }
 
 .width-960 {
@@ -366,7 +367,7 @@ align-items: stretch;
 
 .campaign-bg {
   position: relative;
-  background: url("../../assets/images/dist/campaign.jpg") 68% 70% ;
+  background: url("../../assets/images/dist/campaign.jpg") 68% 50% ;
   background-size: cover;
   .flex-column-sm:nth-of-type(1) {
 		position: relative;
@@ -407,6 +408,22 @@ align-items: stretch;
 	}
 }
 
+.absolute-black-box {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+  background: rgba(0, 0, 0, 0.65);
+ @include for-tablet-portrait-up {
+	 width: 47%;
+	 background: rgba(0, 0, 0, 0.65);
+	 background: -webkit-linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65) , rgba(0, 0, 0, 0)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.65) , rgba(0, 0, 0, 0)); /* Standard syntax */
+ }
+}
 
 .truck {
   display: none;
@@ -651,5 +668,17 @@ input[type=radio]:checked + label {
 @include for-tablet-landscape-up {
 	*:hover {
 		transform: none;
+	}
+}
+
+//HAX
+.relative {
+  position: relative;
+}
+
+.w-45 {
+	max-width: 100%;
+	@include for-tablet-portrait-up {
+		max-width: 45%;
 	}
 }

@@ -5,8 +5,8 @@ function doThis() {
     if (menu.style.display === 'none') {
         menu.style.display = 'flex';
         hidden.style.display = 'none';
-
-    } else {
+    }
+    else {
         menu.style.display = 'none';
         hidden.style.display = 'block';
     }

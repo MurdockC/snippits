@@ -1,0 +1,503 @@
+
+// Reset
+// Theme Variables
+// Base Rules
+// Helper Selectors
+// Modules
+// State Rules "states of the modules"
+// Responsive
+
+
+
+//Theme Variables --------------------------------------------------------------
+
+$white: #f9fff5;
+$light: #E0E0E0;
+$dark: #424242;
+$black: #212121;
+$primary-color: #2B80BB;
+$secondary-color: #79000e;
+$contrast-color: #FFB555;
+$alt-color: #081437;
+
+$base-space-unit: .5rem;
+
+$primary-font: 'Roboto' , sans-serif;
+
+
+
+
+//Base Rules -------------------------------------------------------------------
+
+h1,h2,h3,h4,h5,h6,p {
+	margin: 0px;
+	padding: 0px;
+}
+
+h1 {
+  text-transform: uppercase;
+	font-size: 1.5em;
+	line-height: .9em;
+	@include for-tablet-landscape-up {
+		font-size: 4.5em;
+		line-height: .9em;
+	}
+}
+
+h2 {
+	font-size: 2em;
+}
+
+h3 {
+	font-size: 1.7em;
+}
+
+h4 {
+	font-size: 1.5em;
+}
+
+h5 {
+	font-size: 1.3em;
+}
+
+h6 {
+	font-size: 1.2em;
+	line-height: 1.2em;
+	letter-spacing: .08em;
+	font-weight:400;
+}
+
+p {
+	line-height: 1.5em;
+	letter-spacing: .02em;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: inherit;
+    font-weight: inherit;
+}
+
+.link-style.link-style {
+	text-decoration: underline;
+	color: white;
+}
+
+
+
+
+//Modules ----------------------------------------------------------------------
+
+.container {
+  overflow: hidden;
+}
+
+.campaign-bg {
+  position: relative;
+  background: url("../../assets/images/dist/campaign.jpg") 68% 70% ;
+  background-size: cover;
+  .flex-column-sm:nth-of-type(1) {
+		position: relative;
+    z-index: 2;
+		flex-grow: 2;
+  }
+}
+
+.campaign-hack {
+	flex-direction: column;
+}
+
+.campaign-bg:before{
+	content: '';
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		top:0;
+		right:0;
+
+	@include for-tablet-landscape-up {
+	  content: '';
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		min-width: 450px;
+		border-radius: 0px 0px 0px 0px;
+		-webkit-transform: skew(-20deg);
+		transform-style: flat;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: -25vw;
+		z-index: 2;
+	}
+}
+
+.truck {
+  display: none;
+	z-index: 1;
+		width: 10%;
+		top: 10px;
+		left: 35%;
+	}
+	@include for-desktop-up {
+		width: 110%;
+		top: -50px;
+		left: 40%;
+	}
+	@media (min-width: 900px) and (max-width: 1199px ) {
+		width: 110%;
+		top: -10px;
+	}
+	@media (min-width: 1900px) {
+		top: -261px;
+}
+
+.ad {
+	display: inline-block;
+	height: auto;
+	display: none;
+}
+
+.campagin-text {
+	font-size: 2.5em;
+}
+//Nav ---------------------------------
+
+.nav {
+  justify-content: space-between;
+  align-items: center;
+  max-height: 125px;
+}
+
+.logo {
+  max-width: 150px;
+}
+
+.nav-icon {
+	display: flex;
+	flex-direction: column;
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+  justify-content: space-around;
+	flex-shrink: 1;
+	position: relative;
+}
+
+.nav-icon-text {
+	display: flex;
+	align-items: center;
+	color: $dark;
+	font-size: 1em;
+	text-transform: uppercase;
+}
+
+.nav-icon-container {
+	flex-direction: row;
+}
+
+.icon-bar {
+  background-color: $dark;
+  flex: 1 0 auto;
+  max-height: 5px;
+}
+
+.mobile-nav {
+  position: absolute;
+  min-height: 100vh;
+  width: 100%;
+  background-color: $white;
+  display: none;
+  overflow: hidden;
+  padding: 10px 10px 0px 10px;
+  z-index: 3;
+}
+
+.mobile-nav-footer {
+	position: fixed;
+	bottom: 0px;
+	background-color: $black;
+	justify-content: space-around;
+	z-index: 3;
+	color: $white;
+}
+
+@include for-tablet-landscape-up{
+  .mobile-nav-footer {
+    display: none;
+  }
+}
+
+.mobile-footer-button {
+  flex: 1 0 15%;
+  text-align: center;
+	i {
+		color: $white;
+		font-size: 1.5em;
+	}
+	a {
+		color: $white;
+		font-size: .8em;
+	}
+}
+
+.mobile-footer-apply {
+	@extend .mobile-footer-button ;
+	flex-grow:4;
+	background-color: $contrast-color;
+	i {
+		color: $dark;
+	}
+	a {
+		color: $dark;
+	}
+}
+
+.button-campaign {
+	min-height: 50px;
+	max-width: 400px;
+	min-height: auto;
+	padding: 20px 40px;
+	text-align:center;
+}
+
+footer {
+	padding-bottom: 40px;
+};
+
+//Form --------------------------------
+
+input {
+	&[type="email"],
+	&[type="number"],
+	&[type="search"],
+	&[type="text"],
+	&[type="tel"],
+	&[type="url"],
+	&[type="password"] {
+	height: 35px;
+	}
+}
+
+input[type=checkbox], input[type=radio] {
+  display: none;
+}
+
+input[type=checkbox] + label,
+input[type=radio] + label {
+  font-size: 0.8em;
+  background-color: $light;
+  color: $dark;
+  padding: 10px;
+  margin: 5px;
+  min-width: 30px;
+}
+
+input[type=checkbox]:checked + label,
+input[type=radio]:checked + label {
+  background-color: $contrast-color;
+  color: $white;
+}
+
+.email-honeypot {
+	display:none;
+}
+
+.check-radio-container {
+  display: flex;
+  background-color: $white;
+  padding: 5px;
+}
+
+.form-label{
+  @extend .self-start;
+  margin: 10px 0px 3px 3px;
+}
+
+.form-title {
+	color: $white;
+}
+
+//Buttons
+
+.button {
+  transition: all 0.5s;
+	&:focus {
+		outline: 5px;
+	}
+	&:hover {
+		transform: scale(1.05,1.05);
+	}
+	&:active {
+		transform: scale(1.2,1.2);
+	}
+}
+
+.button-primary {
+  @extend .button ;
+  background-color: $contrast-color;
+  color: $dark;
+  border: 3px solid $contrast-color;
+}
+
+.button-primary:hover {
+  @extend .button:hover ;
+  background-color: lighten($contrast-color, 10%);
+  color: $dark;
+  border: 3px solid lighten($contrast-color, 10%);
+}
+
+.button-secondary {
+	@extend .button ;
+  border: 3px solid $dark;
+  background: none;
+  color: $dark;
+}
+
+.button-secondary-light {
+	@extend .button-secondary ;
+  border: 3px solid $white;
+	background-color: $white;
+	color: $dark;
+	:visited {
+		color: $dark;
+	}
+	a{
+		color: $dark;
+	}
+}
+
+.button-campaign {
+	min-height: 50px;
+	max-width: 400px;
+}
+
+// Misc -------------------------------
+
+.quote {
+	border-left: 15px solid $primary-color;
+	padding-left: 15px;
+}
+
+
+// State Rules -----------------------------------------------------------------
+
+.desktop-visible {
+  display: none;
+}
+
+.desktop-hidden {
+  display: flex;
+}
+
+@include for-tablet-landscape-up {
+  .desktop-visible {
+    display: flex;
+  }
+
+  .desktop-hidden {
+    display: none;
+  }
+}
+
+@include for-tablet-landscape-up {
+	*:hover {
+		transform: none;
+	}
+}
+
+// Success Page
+//––––––––––––––––––––––––––––––––––––––––––––––––––
+
+#loading-image{
+	text-align:center;
+	margin: 40px auto;
+}
+
+.loading{
+	font-size:200px;
+	color: $primary-color;
+}
+
+.success{
+	font-size:80px;
+	color: $primary-color;
+}
+
+#content {
+	margin: 40px auto;
+	padding: 10px;
+	border: 1px solid $dark;
+	border-radius: 10px;
+	text-align: center;
+	@include for-tablet-portrait-up {
+		padding: 80px;
+	}
+}
+
+
+#content {display: none;}
+
+#content h1 {
+	color: $primary-color;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#content h2 {
+	color: $secondary-color;
+}
+
+#content p {
+	font-weight: bold;
+}
+
+#content p span{
+	color: $secondary-color;
+}
+
+.callout {
+	background-color: black;
+	color: white;
+	text-align: center;
+	padding: 10px;
+	min-width: 40%;
+	flex-grow: 1;
+	margin: 20px auto;
+	@include for-tablet-portrait-up {
+		margin: 20px 20px 20px 0px;
+	}
+
+}
+
+.callout-2 {
+	@include for-tablet-landscape-up {
+		margin-left: 20px;
+	}
+}
+
+.callout-text {
+	font-size: 2em;
+	margin: 5px;
+}
+
+.callout-text-secondary {
+	margin: 5px;
+}
+
+.intro {
+	font-size: 1.2em;
+}
+
+en {
+	font-style: italic;
+}
+
+.footer-content {
+	margin: auto;
+	padding: 20px;
+	bottom: 10px;
+}

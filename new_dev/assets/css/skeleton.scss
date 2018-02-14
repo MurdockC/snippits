@@ -1,0 +1,293 @@
+//Variables
+/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */button,hr,input{overflow:visible}audio,canvas,progress,video{display:inline-block}progress,sub,sup{vertical-align:baseline}[type=checkbox],[type=radio],legend{box-sizing:border-box;padding:0}html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}fieldset{padding:.35em .75em .625em}legend{color:inherit;display:table;max-width:100%;white-space:normal}textarea{overflow:auto}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}[hidden],template{display:none}
+
+
+@mixin for-phone-only {
+	@media (max-width: 599px) { @content; }
+}
+@mixin for-tablet-portrait-up {
+	@media (min-width: 600px) { @content; }
+}
+@mixin for-tablet-landscape-up {
+	@media (min-width: 900px) { @content; }
+}
+@mixin for-desktop-up {
+	@media (min-width: 1200px) { @content; }
+}
+@mixin for-big-desktop-up {
+	@media (min-width: 1800px) { @content; }
+}
+
+
+//Structure-----------------------------------------
+
+.stretch {
+	align-items: stretch;
+}
+* {
+box-sizing: border-box;
+text-decoration: none;
+// border: 2px solid blue;
+}
+
+html * {
+  font-family: $primary-font;
+	font-size: 16px;
+}
+
+
+body {
+	padding-bottom: 47px;
+	@include for-tablet-landscape-up {
+		padding-bottom: inherit;
+	}
+}
+
+//Helper selectors -------------------------------------------------------------
+
+.video-container {
+	flex: 1 0 300px;
+	position:relative;
+	padding-bottom:56.25%;
+	padding-top:30px;
+	height:0px;
+	-moz-height: 150px;
+	overflow:hidden;
+
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+
+.min-300 {
+min-width: 300px;
+flex: 1 1 500px;
+align-items: stretch;
+@include for-tablet-landscape-up {
+	min-width: 500px;
+	}
+}
+
+.stretch {
+	align-items: stretch;
+}
+.relative {
+	position: relative;
+}
+
+.absolute {
+	position: absolute;
+}
+
+.full-height {
+	height: 100vh;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.width-1200 {
+	width: 100%;
+	max-width: 1200px;
+}
+
+.width-960 {
+	max-width: 960px;
+}
+
+.flex-grow {
+	flex-grow: 1;
+}
+
+.grow-shrink {
+  flex:1 1 auto;
+}
+
+.white-text {
+  color: $white;
+}
+
+.flex {
+  display: flex;
+  overflow: hidden;
+}
+
+.flex-column-sm {
+  flex-direction: column;
+  flex: 1 0 300px;
+}
+
+.flex-column-content{
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.centered-contents {
+  justify-content: center;
+  align-items: center;
+}
+
+.self-start {
+  align-self: flex-start;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.self-centered {
+  align-self: center;
+}
+
+.padding-none {
+	padding: 0;
+}
+
+.padding-xs {
+  padding: $base-space-unit / 4;
+}
+
+.padding-sm {
+  padding: $base-space-unit / 2;
+}
+
+.padding-md {
+  padding: $base-space-unit;
+}
+
+.padding-lg {
+  padding: $base-space-unit * 2 ;
+}
+
+.padding-xl {
+  padding: $base-space-unit * 3;
+}
+
+.padding-tb-none {
+	padding-top: 0;
+  padding-bottom: 0;
+}
+
+.padding-tb-xs {
+  padding-top: $base-space-unit / 4;
+  padding-bottom: $base-space-unit / 4;
+}
+
+.padding-tb-sm {
+  padding-top: $base-space-unit / 2;
+  padding-bottom: $base-space-unit / 2;
+}
+
+.padding-tb-md {
+  padding-top: $base-space-unit;
+  padding-bottom: $base-space-unit;
+}
+
+.padding-tb-lg {
+  padding-top: $base-space-unit * 2;
+  padding-bottom: $base-space-unit * 2;
+}
+
+.padding-tb-xl {
+  padding-top: $base-space-unit * 3;
+  padding-bottom: $base-space-unit * 3;
+}
+
+.margin-none {
+	padding: 0;
+}
+
+.margin-xs {
+  margin: $base-space-unit / 4;
+}
+
+.margin-sm {
+  margin: $base-space-unit / 2;
+}
+
+.margin-md {
+  margin: $base-space-unit;
+}
+
+.margin-lg {
+  margin: $base-space-unit * 2;
+}
+
+.margin-xl {
+  margin: $base-space-unit * 3;
+}
+.margin-tb-none {
+	margin-top: 0;
+  margin-bottom: 0;
+}
+.margin-tb-xs {
+  margin-top: $base-space-unit / 4;
+  margin-bottom: $base-space-unit / 4;
+}
+
+.margin-tb-sm {
+  margin-top: $base-space-unit / 2;
+  margin-bottom: $base-space-unit / 2;
+}
+
+.margin-tb-md {
+  margin-top: $base-space-unit;
+  margin-bottom: $base-space-unit;
+}
+
+.margin-tb-lg {
+  margin-top: $base-space-unit * 2;
+  margin-bottom: $base-space-unit * 2;
+}
+
+.margin-tb-xl {
+  margin-top: $base-space-unit * 3;
+  margin-bottom: $base-space-unit * 3;
+}
+
+.margin-t-xl {
+	margin-top: $base-space-unit * 3;
+}
+
+.white-bg {
+  background-color: $white;
+}
+
+.light-bg {
+  background-color: $light;
+}
+
+.dark-bg {
+  background-color: $dark;
+  color: $white;
+}
+
+.primary-bg {
+  background-color: $primary-color;
+}
+
+.secondary-bg {
+  background-color: $secondary-color;
+}
+
+.alt-bg {
+  background-color: $alt-color;
+}

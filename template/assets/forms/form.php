@@ -1,3 +1,4 @@
+<form class="full-width text-center container centered-contents">
 <div class="container full-width text-center">
 	<h2 class="margin-sm form-title">Be Contacted</h2>
 </div>
@@ -8,7 +9,6 @@
 				<label class="form-label" for="content">Email</label>
 				<input tabindex="4" type="email" name="content" autocapitalize="off" autocorrect="off"  title="Please enter a valid email address." placeholder="Enter your Email Address" pattern="^[_a-zA-Z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$" required>
 				<input class="email-honeypot" type="email" name="email" title="Please enter a valid email." placeholder="Email">
-
 
 				<label class="form-label" for="phone">Phone</label>
 				<input tabindex="5" class="u-full-width" type="tel" name="phone" title="Please enter a 9 digit phone number." placeholder="Enter your Phone Number" pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$" required>
@@ -52,3 +52,4 @@
 				<button class="button-primary padding-md full-width margin-lg self-centered">Contact Me!</button>
 		</div>
 </div>
+</form>
