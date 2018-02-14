@@ -63,4 +63,3 @@ RewriteCond %{HTTP_REFERER} 100dollars-seo\.com [NC,OR]
 RewriteCond %{HTTP_REFERER} howtostopreferralspam\.eu [NC,OR]
 RewriteCond %{HTTP_REFERER} inbox\.com [NC]
 RewriteRule .* - [F]
-

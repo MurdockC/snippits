@@ -50,7 +50,6 @@
 					<div  class="callout-title">
 						<p><i class="fa fa-truck"></i></span><br></p>
 						<h2>MOST WEEKENDS OFF!</h2>
-						<h4>Home 2-3 nights a week</h4>
 					</div>
 					<div>
 						<p><strong>Deliver to job sites and stores</strong> within a 350-mile radius</p>

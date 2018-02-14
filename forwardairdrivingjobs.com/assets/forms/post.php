@@ -21,8 +21,6 @@ $rmwemail = 'apps@ramseymediaworks.com';
 // Don't edit below unless you have a good reason!
 //---------------------------------------------------
 
-//$cdl = $_POST['cdl'];
-//$experience = $_POST['experience'];
 $fullname = $_POST['name'];
 $email = $_POST['content'];
 $phone = $_POST['phone'];
@@ -32,12 +30,12 @@ $city = $_POST['city'];
 $state = $_POST['state'];
 $cdl = $_POST['cdl'];
 $experience = $_POST['experience'];
-$hazmat = $_POST['hazmat'];
-$tanker = $_POST['tanker'];
 $source = $_POST['source'];
 $userIP = $_POST['userIP'];
 $jobtype = $_POST['job'];
 $drivertype = $_POST['driver'];
+$whichPage = $_POST['division'];
+$pageName = $_POST['pagename'];
 
 
 $recruiterphone	= $_POST['recruiterphone'];
@@ -63,7 +61,7 @@ $db_host = "mysql.rmwhost.com";
 $db_username = "landingpages";
 $db_password = "@||PaG3s";
 $db_name = "_apps";
-$sql = "INSERT INTO $databaseTable (First, Last, Email, Phone,  City, State, Zip, Experience, JobType, DriverType, CDL, Source, UserIP, Date) VALUES ('$first', '$last', '$email' , '$phone' , '$city' , '$state' , '$zip' ,  '$experience' , '$jobtype' , '$drivertype' , '$cdl' , '$source' , '$userIP' , '$date' )";
+$sql = "INSERT INTO $databaseTable (First, Last, Email, Phone,  City, State, Zip, Experience, JobType, DriverType, CDL, Source, PageName, UserIP, Date) VALUES ('$first', '$last', '$email' , '$phone' , '$city' , '$state' , '$zip' ,  '$experience' , '$jobtype' , '$drivertype' , '$cdl' , '$source' , ' $pageName' , '$userIP' , '$date' )";
 
 
 // Honeypot Captcha to repel spambots
@@ -84,6 +82,52 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 
 		// If no Tenstreet ID is set, just email the form to the "myemail" variable and copy RMW
 		if( empty($companyID) ) {
+			
+			
+
+		    // FORM REACTOR - SEND FORM TO CALL TRACKING METRICS FOR PHONE CALLS
+
+
+				if (strpos($source, 'google_ltl') !== false) {
+					$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A56BB4D2EF475C8E46252812CA86B4DCDE51F28734891EF75'); // Google LTL
+
+				} elseif (strpos($source, 'google_tlx') !== false) {
+					$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A56BB4D2EF475C8E419498034324DAB9F988D6901BA57DDE1'); // Google TLX
+
+				} elseif (strpos($source, 'socialedge_ltl') !== false) {
+					$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A56BB4D2EF475C8E4D5BD750184ECE69CB8B74A2067DC7454'); // SocialEdge LTL
+
+				} elseif (strpos($source, 'socialedge_tlx') !== false) {
+					$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A56BB4D2EF475C8E49554B3103460B7A0B7E8318EBC40A20B'); // SocialEdge TLX
+
+				} elseif (strpos($whichPage, 'TLX') !== false) {
+					$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A56BB4D2EF475C8E455BD65DA5DD234B2A9BF495E1F81BCFD'); // Default Landing page TLX
+				} else {
+					$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A56BB4D2EF475C8E41C095CA8B329941292067274B4A0E513'); // Default Landing page LTL
+
+				}
+
+				curl_setopt_array($curl, array(
+				  CURLOPT_RETURNTRANSFER => true,
+				  CURLOPT_ENCODING => "",
+				  CURLOPT_MAXREDIRS => 10,
+				  CURLOPT_TIMEOUT => 30,
+				  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+				  CURLOPT_CUSTOMREQUEST => "POST",
+				  CURLOPT_POSTFIELDS => '{ "caller_name":"' . $fullname . '", "phone_number":"' . $phone . '", "custom_source":"' . $source . '" }',
+				  CURLOPT_HTTPHEADER => array(
+				    'Content-Type:application/json',
+					'Authorization: Basic '. base64_encode("ec676d1f4d869b153af91796705d951e:dac8cbe2d2779ef7c816d2804731541f434b")
+				  ),
+				));
+
+				$result = curl_exec($curl);
+				$err = curl_error($curl);
+
+				curl_close($curl);
+
+			// END FORM REACTOR
+			
 
 			$to = $notify;
 			$email_subject = "New $companyName QuickApp: $first $last";
@@ -103,7 +147,6 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 			$message .= '<tr><th style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #DDE0E1;" width="120" valign="top" align="right" bgcolor="#DDE0E1"><strong>Job Type</strong></th><td style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #f9f9f9;" width="400" valign="top" bgcolor="#f9f9f9">'. $jobtype .'</td></tr>';
 			$message .= '<tr><th style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #DDE0E1;" width="120" valign="top" align="right" bgcolor="#DDE0E1"><strong>Driver Type</strong></th><td style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #f9f9f9;" width="400" valign="top" bgcolor="#f9f9f9">'. $drivertype .'</td></tr>';
 			$message .= '<tr><th style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #DDE0E1;" width="120" valign="top" align="right" bgcolor="#DDE0E1"><strong>Current CDL</strong></th><td style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #f9f9f9;" width="400" valign="top" bgcolor="#f9f9f9">'. $cdl .'</td></tr>';
-			//$message .= '<tr><th style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #DDE0E1;" width="120" valign="top" align="right" bgcolor="#DDE0E1"><strong>Endorsements</strong></th><td style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #f9f9f9;" width="400" valign="top" bgcolor="#f9f9f9">'. $tanker . ' ' . $hazmat .'</td></tr>';
 			$message .= '<tr><th style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #DDE0E1;" width="120" valign="top" align="right" bgcolor="#DDE0E1"><strong>User IP Address</strong></th><td style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #f9f9f9;" width="400" valign="top" bgcolor="#f9f9f9">'. $userIP .'</td></tr>';
 			$message .= '<tr><th style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #DDE0E1;" width="120" valign="top" align="right" bgcolor="#DDE0E1"><strong>Ad Source</strong></th><td style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #f9f9f9;" width="400" valign="top" bgcolor="#f9f9f9">'. $source .'</td></tr>';
 			$message .= '</table>';
@@ -171,31 +214,32 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 						<License>
 							<CommercialDriversLicense>'. $cdl . '</CommercialDriversLicense>
 						</License>
-				        <Endorsements>
-				          <Endorsement>' . $tanker . '</Endorsement>
-				          <Endorsement>' . $hazmat . '</Endorsement>
-				        </Endorsements>
 					</Licenses>
 					<DisplayFields>
 						<DisplayField>
 							<DisplayId>experience</DisplayId>
-							<DisplayPrompt>Number of Years Experience</DisplayPrompt>
+							<DisplayPrompt>Years of Experience</DisplayPrompt>
 							<DisplayValue>' . $experience . '</DisplayValue>
 						</DisplayField>
 						<DisplayField>
 							<DisplayId>job_type</DisplayId>
-						    <DisplayPrompt>What Position are you applying for?</DisplayPrompt>
+						    <DisplayPrompt>Job Type</DisplayPrompt>
 						    <DisplayValue>' . $jobtype . '</DisplayValue>
 						</DisplayField>
 						<DisplayField>
 							<DisplayId>driver_type</DisplayId>
-						    <DisplayPrompt>What Position are you applying for?</DisplayPrompt>
+						    <DisplayPrompt>Driver Type</DisplayPrompt>
 						    <DisplayValue>' . $drivertype . '</DisplayValue>
 						</DisplayField>
 						<DisplayField>
 							<DisplayId>location</DisplayId>
 							<DisplayPrompt>Location Applied For</DisplayPrompt>
 							<DisplayValue>' . $location . '</DisplayValue>
+						</DisplayField>
+						<DisplayField>
+							<DisplayId>page</DisplayId>
+							<DisplayPrompt>Pave Visited</DisplayPrompt>
+							<DisplayValue>' . $pageName . '</DisplayValue>
 						</DisplayField>
 					</DisplayFields>
 				</ApplicationData>
@@ -218,6 +262,49 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 
 			curl_close($ch);
 
+		    // FORM REACTOR - SEND FORM TO CALL TRACKING METRICS FOR PHONE CALLS
+
+				if (strpos($source, 'google_ltl') !== false) {
+					$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A56BB4D2EF475C8E46252812CA86B4DCDE51F28734891EF75'); // Google LTL
+
+				} elseif (strpos($source, 'google_tlx') !== false) {
+					$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A56BB4D2EF475C8E419498034324DAB9F988D6901BA57DDE1'); // Google TLX
+
+				} elseif (strpos($source, 'socialedge_ltl') !== false) {
+					$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A56BB4D2EF475C8E4D5BD750184ECE69CB8B74A2067DC7454'); // SocialEdge LTL
+
+				} elseif (strpos($source, 'socialedge_tlx') !== false) {
+					$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A56BB4D2EF475C8E49554B3103460B7A0B7E8318EBC40A20B'); // SocialEdge TLX
+
+				} elseif (strpos($whichPage, 'TLX') !== false) {
+					$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A56BB4D2EF475C8E455BD65DA5DD234B2A9BF495E1F81BCFD'); // Default Landing page TLX
+				} else {
+					$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A56BB4D2EF475C8E41C095CA8B329941292067274B4A0E513'); // Default Landing page LTL
+
+				}
+
+				curl_setopt_array($curl, array(
+				  CURLOPT_RETURNTRANSFER => true,
+				  CURLOPT_ENCODING => "",
+				  CURLOPT_MAXREDIRS => 10,
+				  CURLOPT_TIMEOUT => 30,
+				  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+				  CURLOPT_CUSTOMREQUEST => "POST",
+				  CURLOPT_POSTFIELDS => '{ "caller_name":"' . $fullname . '", "phone_number":"' . $phone . '", "custom_source":"' . $source . '" }',
+				  CURLOPT_HTTPHEADER => array(
+				    'Content-Type:application/json',
+					'Authorization: Basic '. base64_encode("ec676d1f4d869b153af91796705d951e:dac8cbe2d2779ef7c816d2804731541f434b")
+				  ),
+				));
+
+				$result = curl_exec($curl);
+				$err = curl_error($curl);
+
+				curl_close($curl);
+
+			// END FORM REACTOR
+			
+
 			// Send an email copy of the submitted data to RMW
 			$to = $rmwemail . ', ' . $notify;
 			$email_subject = "$companyName QuickApp: $source";
@@ -237,9 +324,10 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 			$message .= '<tr><th style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #DDE0E1;" width="120" valign="top" align="right" bgcolor="#DDE0E1"><strong>Job Type</strong></th><td style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #f9f9f9;" width="400" valign="top" bgcolor="#f9f9f9">'. $jobtype .'</td></tr>';
 			$message .= '<tr><th style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #DDE0E1;" width="120" valign="top" align="right" bgcolor="#DDE0E1"><strong>Driver Type</strong></th><td style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #f9f9f9;" width="400" valign="top" bgcolor="#f9f9f9">'. $drivertype .'</td></tr>';
 			$message .= '<tr><th style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #DDE0E1;" width="120" valign="top" align="right" bgcolor="#DDE0E1"><strong>Current CDL</strong></th><td style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #f9f9f9;" width="400" valign="top" bgcolor="#f9f9f9">'. $cdl .'</td></tr>';
-			//$message .= '<tr><th style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #DDE0E1;" width="120" valign="top" align="right" bgcolor="#DDE0E1"><strong>Endorsements</strong></th><td style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #f9f9f9;" width="400" valign="top" bgcolor="#f9f9f9">'. $tanker . ' ' . $hazmat .'</td></tr>';
 			$message .= '<tr><th style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #DDE0E1;" width="120" valign="top" align="right" bgcolor="#DDE0E1"><strong>User IP Address</strong></th><td style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #f9f9f9;" width="400" valign="top" bgcolor="#f9f9f9">'. $userIP .'</td></tr>';
 			$message .= '<tr><th style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #DDE0E1;" width="120" valign="top" align="right" bgcolor="#DDE0E1"><strong>Ad Source</strong></th><td style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #f9f9f9;" width="400" valign="top" bgcolor="#f9f9f9">'. $source .'</td></tr>';
+			$message .= '<tr><th style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #DDE0E1;" width="120" valign="top" align="right" bgcolor="#DDE0E1"><strong>Page Visited</strong></th><td style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #f9f9f9;" width="400" valign="top" bgcolor="#f9f9f9">'. $pageName .'</td></tr>';
+			$message .= '<tr><th style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 10px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #DDE0E1;" width="120" valign="top" align="right" bgcolor="#DDE0E1"><strong>TENSTREET SERVER RESPONSE</strong></th><td style="border-left-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-right-width: 1px; padding-left: 5px; padding-top: 5px; padding-right: 5px; padding-bottom: 5px; border-left-style: solid; border-bottom-style: solid; border-right-style: solid; border-top-style: solid; border-right-color: #999999; border-top-color: #999999; border-bottom-color: #999999; border-left-color: #999999; background-color: #f9f9f9;" width="400" valign="top" bgcolor="#f9f9f9">'. $result .'</td></tr>';
 			$message .= '</table>';
 			$message .= '</body></html>';
 

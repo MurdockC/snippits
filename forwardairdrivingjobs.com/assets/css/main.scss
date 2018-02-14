@@ -775,11 +775,13 @@ button {
 	flex: 1 1 auto;
 	justify-content: space-around;
 	align-items:flex-start;
+	z-index: 20;
 }
 
 .campaign__button {
 	min-height: 50px;
 	max-width: 400px;
+	z-index: 20;
 }
 
 .icon {

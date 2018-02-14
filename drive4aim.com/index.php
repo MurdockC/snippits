@@ -46,7 +46,7 @@
 					</div>
 				</div>
 				<div class="callout">
-					<div  class="callout-title">
+					<div class="callout-title">
 						<p><i class="fa fa-truck"></i></span><br></p>
 						<h2>LOCAL WORK</h2>
 						<h4>Home Every Night</h4>

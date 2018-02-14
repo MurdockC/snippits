@@ -2,7 +2,7 @@
 	//SETS PAGE INFO AT THE TOP OF THE HEADER
 	$pageTitle = "Privacy";
 	$pageName = "privacy";
-	
+	$company = 'drive4aim.com'
 ?>
 <link rel="stylesheet" href="<?php echo $siteURL; ?>assets/css/style.css">
 <body>
@@ -36,7 +36,7 @@
 			<p class="margin-md">We take precautions to protect your information. When you submit sensitive information via the website, your information is protected both online and offline.</p>
 			<p class="margin-md">Wherever we collect sensitive information, that information is encrypted and transmitted to us in a secure way. You can verify this by looking for a closed lock icon at the bottom of your web browser, or looking for "https" at the beginning of the address of the web page.</p>
 			<p class="margin-md">While we use encryption to protect sensitive information transmitted online, we also protect your information offline. Only employees who need the information to perform a specific job (for example, recruiters and their supervisors) are granted access to personally identifiable information. The computers/servers in which we store personally identifiable information are kept in a secure environment.</p>
-			<p class="margin-md">If you feel that we are not abiding by this privacy policy, you should contact us immediately via telephone at <?php echo $phone; ?> or via email.</p>
+			<p class="margin-md">If you feel that we are not abiding by this privacy policy, you should contact us immediately via email.</p>
 		</div>
 	</div>
 </div>

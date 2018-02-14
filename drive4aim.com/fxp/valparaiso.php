@@ -7,7 +7,7 @@
 <section>
 	<div class="container introContainer">
 	  	<div>
-			<h1>Valparaiso, IN</h1>
+			<h1>Valparaiso, IN</h1> 
 			<p>Class A or Class B Drivers will operate a 24ft straight truck and perform store deliveries that include delivering freight to NO dock facilities. Drivers make multiple ­stops on their routes and will unload freight at each customer stop using ramp & dollies to make inside deliveries. This position is not driving only - customer service & delivery skills are a must.</p>
 	    </div>
 	</div>

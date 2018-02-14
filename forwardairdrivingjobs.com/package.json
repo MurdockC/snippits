@@ -1,22 +1,30 @@
 {
-  "name": "forwardair",
+  "name": "forwardairdrivingjobs.com",
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "browser-sync": "^2.23.6",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.1.0",
     "gulp-clean-css": "^3.9.2",
+    "gulp-autoprefixer": "^4.1.0",
     "gulp-connect-php": "^1.0.1",
-    "gulp-imagemin": "^4.1.0",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.4"
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-imagemin": "^4.1.0"
   },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramseymediaworks/forwardairdrivingjobs.com.git"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ramseymediaworks/forwardairdrivingjobs.com/issues"
+  },
+  "homepage": "https://github.com/ramseymediaworks/forwardairdrivingjobs.com#readme"
 }

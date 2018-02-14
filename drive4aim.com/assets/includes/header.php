@@ -2,14 +2,15 @@
 	// CONTAINS PHONE NUMBERS, COOKIES, GLOBAL VARIABLES, ETC //
 	require_once $_SERVER['DOCUMENT_ROOT'] . ('/assets/source/source.php');
 
+
 	// THESE GET SET IN THE CONFIG & SOURCE FILES //
 	$siteURL = source::getUrl();
 	$siteTitle = source::getTitle();
 	$app = source::getApplication();
 	$company = source::getTitle();
-	
+
 	if (!isset($_GET['utm_source']) && !isset($_COOKIE["driveforaim"]))
-		if ($location == "frs-deforest") 
+		if ($location == "frs-deforest")
 			$phone = '877.862.8054';
 		elseif ($location == "frs-youngwood")
 			$phone = '855.279.2735';
@@ -25,9 +26,9 @@
 			$phone = '855.910.8966';
 		elseif ($location == "spi-romulus")
 			$phone = '855.781.8917';
-		else 
+		else
 			$phone = '';;
-	
+
 ?>
 <html>
 <head>

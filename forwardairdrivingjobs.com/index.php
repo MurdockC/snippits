@@ -1,10 +1,10 @@
 <?php
 	//SETS PAGE INFO AT THE TOP OF THE HEADER
-	$pageTitle = "Home";
-	$pageName = "home";
+	$pageTitle = "LTL";
+	$pageName = "ltl";
 
 	include('assets/includes/header.php');?>
-		<div id="mobile-hide"> 
+		<div id="mobile-hide">
 
 
     		<section id="body-content" class="bg-light container container--full-width padding--lg ai--c jc--c container--flex bg-secondary">

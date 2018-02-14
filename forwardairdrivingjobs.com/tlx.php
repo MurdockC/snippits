@@ -9,7 +9,7 @@
     		<section id="body-content" class="bg-light container container--full-width padding--lg ai--c jc--c container--flex bg-secondary">
 						<div class="container--flex container--1200 jc--c ai--c ">
 							<div class="container--flex container--column jc--c ai--c column bg-">
-								<h1 class="job__title">Less Than Truckload (LTL)</h1>
+								<h1 class="job__title">Truckload Xpedited (TLX)</h1>
 								<p>As a TLX driver you'll handle full expedited loads—long haul, regional, and local—throughout the
 US, Canada, and Mexico.</p>
 							</div>
@@ -27,7 +27,7 @@ US, Canada, and Mexico.</p>
 								<li class="margin--tb-xs text--left">$1,500 Sign On Bonus</li>
 							</ul>
 							<div style="margin: 5px 0px -5px 29px; line-height: .5em;">*</div>
-							<small class="asterisk" style="padding: 0px 40px; margin-bottom: 10px;">*Earnings are based off of an estimated 2,750 miles per week and include $0.02 for hazmat and
+							<small class="asterisk" style="padding: 0px 40px; margin-bottom: 10px;">Earnings are based off of an estimated 2,750 miles per week and include $0.02 for hazmat and
 $0.02 for a truck 5 years old or newer. The estimate is for 52 weeks and includes an adjustment
 for empty miles and fuel surcharge.</small>
 							<h4 style="margin-bottom: 5px;" class="margin--tb-sm text--left ">Team Owner Operator Pay</h4>
@@ -37,7 +37,7 @@ for empty miles and fuel surcharge.</small>
 								<li class="margin--tb-md text--left">$3,000 Sign On Bonus</li>
 							</ul>
 							<div style="margin: 5px 0px -5px 29px; line-height: .5em;">*</div>
-							<small class="asterisk" style="padding: 0px 40px; margin-bottom: 10px;">*Earnings are based off of an estimated 5,000 miles per week and include $0.02 for hazmat and
+							<small class="asterisk" style="padding: 0px 40px; margin-bottom: 10px;">Earnings are based off of an estimated 5,000 miles per week and include $0.02 for hazmat and
 $0.02 for a truck 5 years old or newer. The estimate is for 52 weeks and includes an adjustment
 for empty miles and fuel surcharge.</small>
             </div>
@@ -55,7 +55,7 @@ for empty miles and fuel surcharge.</small>
 								<ul class="margin--sm">
 								<li class="margin--tb-md text--left">Weekly pay by direct deposit</li>
 								<li class="margin--tb-md text--left">90% Terminal to Terminal</li>
-								<li class="margin--tb-md text--left">99.9% No Touch, Drop & Hook Freight</li>
+								<li class="margin--tb-md text--left">95% No Touch, Drop & Hook Freight</li>
 								<li class="margin--tb-md text--left">No Charge for Qualcomm (after 1 year) and No Base Plate Charge (after 2 years)</li>
 								<li class="margin--tb-md text--left">Paperless online settlement</li>
 								<li class="margin--tb-md text--left">Longevity raises on plates and permits</li>

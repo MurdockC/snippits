@@ -18,10 +18,10 @@
 					<div class="callout-title">
 						<p><i class="fa fa-money"></i></span><br></p>
 						<h2>COMPETITIVE PAY</h2>
-						<h4>Average $57,200 a year</h4>
+						<h4>Average $58,000 a year</h4>
 					</div>
 					<div>
-						<p><strong>$1,100 Weekly average</strong>, all pay is based on mileage and stops.</p>
+						<p><strong>$1,115 Weekly average</strong>, all pay is based on mileage and stops.</p>
 					</div>
 					<div>
 						<p><strong>Paid weekly</strong> via direct deposit on Fridays.</p>
@@ -50,10 +50,10 @@
 					<div  class="callout-title">
 						<p><i class="fa fa-truck"></i></span><br></p>
 						<h2>REGIONAL POSITION</h2>
-						<h4>out 3-5 night a week</h4>
+						<h4>out 3-5 nights a week</h4>
 					</div>
 					<div>
-						<p><strong>Multiple stops</strong> in a 100-1000 mile radius.</p>
+						<p><strong>Point to point - </strong> drop and hook to and from North York Ontario</p>
 					</div>
 					<div>
 						<p><strong>2652</strong> Average miles a week</p>
@@ -80,7 +80,6 @@
 				<li>CDL driving experience with Direct Store Delivery & Load Hauling Experience</li>
 				<li>Able to meet physical demands</li>
 				<li>Backhauls</li>
-				<li>Passport required</li>
 			</ul>
 		</div>
 		<div>

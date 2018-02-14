@@ -613,6 +613,7 @@ footer span {
 .callout-parent-container {
 	display: flex;
 	flex-wrap: wrap;
+	margin-right: 0px;
 }
 
 .callout-parent {
@@ -620,9 +621,10 @@ footer span {
 	flex: 1 1 360px;
 	flex-wrap: wrap;
 	justify-content: center;
+	margin-right: 0px;
 }
 
-.callout {
+.callout.callout.callout {
 	display: flex;
 	flex-direction: column;
 	flex: 1 1 156px;
@@ -630,6 +632,7 @@ footer span {
 	text-align: center;
 	border: 5px solid $primary-color;
 	padding-top: 25px;
+	margin-right: 0px;
 	div {
 		display: flex;
 		flex: 1 0 15%;
@@ -654,6 +657,7 @@ footer span {
 	.callout-title {
 		display: block;
 		flex: 5 0 20%;
+		margin: 0px;
 	}
 	div:nth-of-type(2n+2) {
 		background-color: lighten($grey, 10%);
@@ -902,7 +906,7 @@ input[type=radio]:checked + label, input[type=checkbox]:checked + label {
   	@include for-tablet-landscape-up {
     	justify-content: space-between;
     }
-  
+
 }
 .index-button {
   color: #fff;

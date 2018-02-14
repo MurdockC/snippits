@@ -18,10 +18,10 @@
 					<div class="callout-title">
 						<p><i class="fa fa-money"></i></span><br></p>
 						<h2>COMPETITIVE PAY</h2>
-						<h4>Average $61,100 a year</h4>
+						<h4>Average $63,000 a year</h4>
 					</div>
 					<div>
-						<p><strong>$1,175 Weekly Average</strong>, all pay is based on mileage and stops.</p>
+						<p><strong>$1,211 Weekly Average</strong>, all pay is based on mileage and stops.</p>
 					</div>
 					<div>
 						<p><strong>Paid weekly</strong> via direct deposit on Fridays.</p>
