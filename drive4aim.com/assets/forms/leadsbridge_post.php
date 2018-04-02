@@ -23,32 +23,29 @@ $rmwemail = 'apps@ramseymediaworks.com';
 //---------------------------------------------------
 // Don't edit below unless you have a good reason!
 //---------------------------------------------------
+function test_input($data) {
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
+}
 
-$fullname = $_POST['full_name'];
-$email = $_POST['email'];
-$phone = $_POST['phone_number'];
-$address = $_POST['street_address'];
-$zip = $_POST['zip_code'];
-$city = $_POST['city'];
-$state = $_POST['state'];
-$cdl = $_POST['do_you_have_a_current_cdl-a_or_b_license?'];
-$experience = $_POST['how_many_years_of_driving_experience?'];
-$trailertype = $_POST['division'];
-$hazmat = $_POST['hazmat'];
-$tanker = $_POST['tanker'];
-$doubles = $_POST['doubles'];
-$source = $_POST['ad_id'];
-$userIP = $_POST['userIP'];
-$flatbed = $_POST['flatbed'];
-$van = $_POST['van'];
-$sliding = $_POST['sliding'];
-$reefer = $_POST['reefer'];
-$doubles = $_POST['doubles'];
-$straight = $_POST['straight'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	$fullname = test_input($_POST['full_name']);
+	$email = test_input($_POST['email']);
+	$phone = test_input($_POST['phone_number']);
+	$address = test_input($_POST['street_address']);
+	$zip = test_input($_POST['zip_code']);
+	$city = test_input($_POST['city']);
+	$state = test_input($_POST['state']);
+	$cdl = test_input($_POST['do_you_have_a_current_cdl-a_or_b_license?']);
+	$experience = test_input($_POST['how_many_years_of_driving_experience?']);
+}
 
 $recruiterphone	= $_POST['recruiterphone'];
 $jobID = $_POST['jobid'];
 $location = $_POST['adset_id'];
+$source = $_POST['ad_id'];
 
 //pull first and last out of full name
 $trimmed = rtrim($fullname);
@@ -56,11 +53,9 @@ $parts = explode(" ", $trimmed);
 $last = array_pop($parts);
 $first = implode(" ", $parts);
 
-
 //Set date for sql entry
 date_default_timezone_set("America/Chicago");
 $date = date("y-m-d h:i:sa");
-
 
 // This pulls the siteURL and strips the Scheme and the top domain and inputs it as the value of the database table variable
 $databaseTable = str_replace('.com', '', $URL_stripped); //removes the .com from the url and places itself as the value for the database table name
@@ -71,9 +66,8 @@ $db_password = "@||PaG3s";
 $db_name = "_apps";
 $sql = "INSERT INTO $databaseTable (First, Last, Email, Phone, Address, City, State, Zip, Experience, CDL, TrailerType, Source, UserIP, Date) VALUES ('$first', '$last', '$email' , '$phone' , '$address', ' ' , ' ' , '$zip' ,  '$experience' , '$cdl' , ' ' , '$source' , '$userIP' , '$date' )";
 
-
-if(empty($fullname)) {  $errors .= "\n Error: First Name Required.";}
-if(empty($email)) {  $errors .= "\n Error: Email required.";}
+if(empty($fullname) || !preg_match("/^[a-zA-Z ]*$/", $fullname)) {  $errors .= "\n Error: A Name is Required.";}
+if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {  $errors .= "\n Error: A Valid Email is Required.";}
 if(empty($phone)) {  $errors .= "\n Error: Phone number required.";}
 
 if ($errors) {
@@ -123,10 +117,10 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 			// After sending and insertion let know it worked, or didn't
 		    if (mysqli_query($link, $sql)) {
 		    	// Redirect to the 'Success' page
-		        header("Location: {$siteURL}assets/forms/leadsbridge_success");
+		        $redirect = "Location: {$siteURL}assets/forms/leadsbridge_success";
 		        mysqli_close($link);
 		    } else {
-		        echo "Error: " . mysqli_error($link);
+		        $errors .= "Error: " . mysqli_error($link);
 		    }
 
 
@@ -299,16 +293,18 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 			// After sending and insertion let know it worked, or didn't
 		    if (mysqli_query($link, $sql)) {
 		    	// Redirect to the 'Success' page
-		        header("Location: {$siteURL}assets/forms/leadsbridge_success.html");
+		        $redirect = "Location: {$siteURL}assets/forms/leadsbridge_success.html";
 		        mysqli_close($link);
 		    } else {
-		        echo "Error: " . mysqli_error($link);
-		        header("Location: {$siteURL}assets/forms/leadsbridge_error.html");
+		        $errors .= "Error: " . mysqli_error($link);
+		        $redirect = "Location: {$siteURL}assets/forms/leadsbridge_error.html";
 		    }
 		}
 	} else {
 		// Redirect to the 'Error' page
-		header("Location: {$siteURL}assets/forms/leadsbridge_error.html");
+		$redirect = "Location: {$siteURL}assets/forms/leadsbridge_error.html";
 	}
+	
+	header($redirect);
 
 ?>

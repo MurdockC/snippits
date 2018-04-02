@@ -25,12 +25,12 @@ gulp.task('image-min', function () {
 });
 
 gulp.task('php', function() {
-    php.server({ base: '../heyl-new', port: 8080, keepalive: true});
+    php.server({ base: '../template_v3', port: 8080, keepalive: true});
 });
 
 gulp.task('browser-sync',['php'], function() {
     browserSync({
-        proxy: 'localhost/heyl-new/',
+        proxy: 'localhost/template_v3',
         port: 8080,
         open: true,
         notify: false

@@ -1,11 +1,11 @@
 <section id="form" class="full-width">
-<form id="quickApp" class="container full-width secondary-bg centered-contents padding--tb-xl container--flex margin--tb-lg container--column" method="post" action="assets/forms/post.php">
+<form id="quickApp" class="container full-width centered-contents padding--tb-xl flex margin--tb-lg flex-column" method="post" action="assets/forms/post.php">
 
 	<div class="container full-width text--center">
-		<h2 class="form__title">Be Contacted</h2>
+		<h3 class="form__title">Be Contacted</h3>
 	</div>
-	<div class="container width-1200 container--flex wrap">
-		<div class="container--flex margin--lg container--column-sm">
+	<div class="container width-1200 flex wrap">
+		<div class="flex margin--lg container--column-300">
 			<label class="form-label" for="firstname">First & Last Name</label>
 			<input type="text" name="name" autocorrect="off" autocapitalize="sentences" title="Please enter your first & last name." placeholder="Enter your First & Last Name" $ pattern="(?=.*\w)^(\w|')+\s+(\w|')+(\s+(\w|')+)*\s?$" required> <!--pattern="^\w+\s+\w+(\s+\w+)*\s?$"-->
 			<label class="form-label" for="content">Email</label>
@@ -32,7 +32,7 @@
 			<input type="hidden" name="city" title="Please enter your city." placeholder="City">
 			<input type="hidden" name="state" title="Please enter your state." placeholder="State/Province">
 		</div>
-		<div class="container--flex margin--lg container--column-sm">
+		<div class="flex margin--lg container--column-300">
 			<label class="form-label" for="experience">Years of Experience</label>
 			<div class="check-radio-container">
 				<input type="radio" id="experience1-2" name="experience" value="1-2 years" required><label for="experience1-2">1-2 Years</label>
@@ -51,9 +51,8 @@
 				<input type="hidden" name="location" value="<?php echo $city; ?>,<?php echo $state; ?>">
 				<input type="hidden" name="division" value="<?php echo $pageTitle;?>">
 				<input type="hidden" name="jobid" value="<?php echo $jobID; ?>">
-			<button type="submit" class="button--secondary-light padding--md full-width margin--lg self--center">Contact Me!</button>
+			<button type="submit" class="form-button padding--lg full-width margin--xl self--center">Contact Me!</button>
 		</div>
 	</div>
-
 </form>
 </section>

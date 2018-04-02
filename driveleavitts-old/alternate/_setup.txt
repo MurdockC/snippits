@@ -1,0 +1,64 @@
+>> To setup the site you must first edit the following files...
+
+	assets/source/config.php
+	assets/forms/post.php
+
+
+
+>> Page workflow, to build a single page you need the following files...
+
+
+	Homepage with the form at the bottom: ((should not need edited))
+		
+		assets/includes/header.php
+			((assets/source/source.php))
+				((assets/source/config.php))
+		assets/includes/campaign.php
+		index.php	
+			assets/forms/form.php
+		assets/includes/footer.php
+		
+		
+		
+	Alternate Page with form at the top: ((should not need edited))
+		
+		assets/includes/header.php
+			((assets/sourcesource.php))
+				((assets/source/config.php))
+		assets/includes/campaign.php
+			assets/forms/form.php
+		alternate.php	
+		assets/includes/footer.php
+
+		
+		
+	Forms & Success Page:
+	
+		assets/forms/form.php
+			assets/forms/post.php
+				success.php
+		
+
+
+>> The main stylesheet that will need edited is:
+	
+	assets/css/style.scss
+	
+	Note: Make sure to drag all four files from the css folder to your desktop and edit locally then reupload to save changes. (SCSS Must compile locally)
+	
+	Also after upload please minify the style.css file.
+	
+	
+>> Page workflow detailed
+
+	assets/includes/header.php
+		
+		Sets up document, doctype, meta tags, css file, etc.
+		Includes the top bar with the logo, recruiter #, and navigation
+		
+	assets/includes/campaign.php
+	
+		Main colored area, used to match current ad campaign.
+		Includes, full width colored background, Ad text, and apply button.
+		
+	

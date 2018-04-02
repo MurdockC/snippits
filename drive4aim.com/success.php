@@ -1,7 +1,7 @@
 <?php
 	// CONTAINS PHONE NUMBERS, COOKIES, GLOBAL VARIABLES, ETC //
 	require_once('assets/source/source.php');
-	
+
 	// THESE GET SET IN THE CONFIG & SOURCE FILES //
 	$siteURL = source::getUrl();
 	$siteTitle = source::getTitle();
@@ -11,14 +11,15 @@
 <!DOCTYPE html>
 <html lang="en" style="background-color: #fff;">
 <head>
- <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WBP4N7D');</script>
-<!-- End Google Tag Manager -->
- 
+	<!-- Google Tag Manager -->
+ <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+ 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+ })(window,document,'script','dataLayer','GTM-WBP4N7D');</script>
+ <!-- End Google Tag Manager -->
+
+
 	<meta charset="utf-8">
 	<title>Success!</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -28,7 +29,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript">
 		$(window).load(function(){
-		
+
 		    setTimeout(function(){
 		        document.getElementById("content").style.display = "block";
 		        document.getElementById("loading-image").style.display = "none";
@@ -44,29 +45,28 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
    font-size: 3rem;
    padding: 20px;
  }
- 
+
  .icon i {
    margin-right: 10px;
  }
- 
+
  h3 {
    margin: 0px;
  }
- 
+
  .social {
-   
+
    padding: 15px;
  }
- 
+
 </style>
 
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBP4N7D"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
+	<!-- Google Tag Manager (noscript) -->
+ <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBP4N7D"
+ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+ <!-- End Google Tag Manager (noscript) -->
 <div style="background-color:#2b2b2b;">
   <div style="padding: 5px;" class="container">
 	  <a href="<?php echo $siteURL; ?>"><img class="logo" src="<?php echo $siteURL; ?>assets/images/logo.png" /></a>
@@ -77,9 +77,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <div class="container">
-  
+
 	<div id="content">
-  	
+
 		<span class="success"><i class="fa fa-thumbs-up"></i></span>
 		<h1>Success!</h1>
 		<hr>
@@ -91,27 +91,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<br>
 		 <a href="tel:<?php echo $phone; ?>"><p><span style="color: black;">or call</span> <?php echo $phone; ?></a></p>
 		 <br>
-		 <div style="border:2px solid #000; padding: 20px;">
-			<h3>We offer daily live demonstrations of Landstar’s Freight Load Board.</h3>
-		 	<a style="background-color: #2B2B2B; color: white;" class="button button-primary" href="https://register.gotowebinar.com/rt/2204753179637102849" target="_blank">Register Today</a>
-		 </div>
+
 		 <br>
 		 <br>
 		 <hr>
-		 <div class="social">
-  		 <h3>Want to know more about Landstar?</h3>
-		 <a class="icon" href="https://www.facebook.com/LandstarOwnerOperators/" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i>Facebook</a>
-		 <a class="icon" href="http://leasetolandstar.com/blog/" target="_blank"><i class="fa fa-bookmark" aria-hidden="true"></i>Blog</a>
-		 <a class="icon" href="https://twitter.com/LandstarSystem" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a>
-		 </div>
-		 <div style="display: flex; justify-content: flex-end; text-decoration: underline; ">
-		  <a style=" flex: 0 0 50px; align-self: flex-end; font-size: 1.5rem;" class="icon" href="http://leasetolandstar.com/espanol/" target="_blank">Español</a>
-		 </div>
+
+
 	</div>
 </div>
 
 </body>
 </html>
-	
-	
-	

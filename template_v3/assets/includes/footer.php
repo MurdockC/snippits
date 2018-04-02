@@ -1,19 +1,19 @@
 
 
 
-<footer style="padding-top: 20px;" class="dark-bg container container--full-width ai--c jc--c">
+<footer style="padding-top: 20px;" class="bg--secondary container container--full-width ai--c jc--c">
 	<div style="margin: auto; padding; bottom: 10px;" class="container container--1200 ai--c jc--c text--center margin--lg">
-		<h4 class="margin--sm"><button id="footerapply" class="button button-secondary-light"><a href="<?php echo $app; ?>?r=<?php echo $origin; ?>" style="color: white;">Apply Now!<a/></button><span> - OR - </span><button class="button button-secondary-light"><a style="color: white;" href="tel:<?php echo $phone; ?>">Call <?php echo $phone; ?></a></button></h4><br>
+		<h4 class="margin--sm"><button id="footerapply" class="button button-secondary-light"><a href="<?php echo $app; ?>?r=<?php echo $origin; ?>">Apply Now!<a/></button><span> - OR - </span><button class="button button-secondary-light"><a href="tel:<?php echo $phone; ?>">Call <?php echo $phone; ?></a></button></h4><br>
 		<small class"margin--sm"><?php echo $company ?> is an Equal Opportunity Employer</small><br>
 		<small><?php echo "&copy; " . date("Y"); ?> <?php echo $company ?> | <a style="text-decoration: underline; color: white;" href="/privacy.php">Privacy</a></small>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/h5Validate/0.9.0/jquery.h5validate.min.js"></script>
 	</div>
-	<div class="footer__nav--mobile container container container--full-width container--flex">
-		<div class="container--flex container--column footer__button--mobile padding--md ai--c jc--c"><a href="<?php echo $siteURL ?>"><i class="fa fa-home" aria-hidden="true"></i><br>Home</a></div>
-		<div class="container--flex container--column footer__button--mobile padding--md ai--c jc--c"><a href="tel:<?php echo $phone; ?>"><i class="fa fa-phone" aria-hidden="true"></i><br>Call Us!</a></div>
-		<div class="container--flex container--column footer__button--mobile padding--md ai--c jc--c"><a href="#benefits"><i class="fa fa-plus-circle" aria-hidden="true"></i><br>Benefits!</a></div>
-		<div class="container--flex container--column footer__button--mobile footer__apply--mobile ai--c jc--c contrast-bg"><a href="<?php echo $app; ?>?r=<?php echo $origin; ?>"><i class="fa fa-sign-in" aria-hidden="true"></i><br>Apply Now!</a></div>
+	<div class="footer__nav--mobile container container element--full-width flex">
+		<div class="flex flex-column footer__button--mobile padding--md ai--c jc--c"><a href="<?php echo $siteURL ?>"><i class="fa fa-home" aria-hidden="true"></i><br>Home</a></div>
+		<div class="flex flex-column footer__button--mobile padding--md ai--c jc--c"><a href="tel:<?php echo $phone; ?>"><i class="fa fa-phone" aria-hidden="true"></i><br>Call Us!</a></div>
+		<div class="flex flex-column footer__button--mobile padding--md ai--c jc--c"><a href="#benefits"><i class="fa fa-plus-circle" aria-hidden="true"></i><br>Benefits!</a></div>
+		<div class="flex flex-column footer__button--mobile footer__apply--mobile ai--c jc--c contrast-bg"><a href="<?php echo $app; ?>?r=<?php echo $origin; ?>"><i class="fa fa-sign-in" aria-hidden="true"></i><br>Apply Now!</a></div>
 	</div>
 
 	<script type="text/javascript">

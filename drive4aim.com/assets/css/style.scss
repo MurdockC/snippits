@@ -627,19 +627,21 @@ footer span {
 .callout.callout.callout {
 	display: flex;
 	flex-direction: column;
-	flex: 1 1 156px;
+	flex-grow: 1;
 	margin: 10px;
 	text-align: center;
 	border: 5px solid $primary-color;
 	padding-top: 25px;
 	margin-right: 0px;
+	min-width: 300px;
 	div {
 		display: flex;
-		flex: 1 0 15%;
+		flex-grow: 1;
 		padding: 0px 40px 0px 40px;
 		justify-content: center;
 		align-items: center;
 		margin-right: 0px !important;
+		min-height: 15%;
 	}
 	div > * {
 		align-self: center;
@@ -656,7 +658,8 @@ footer span {
 	}
 	.callout-title {
 		display: block;
-		flex: 5 0 20%;
+		flex-grow: 5;
+		min-height: 20%;
 		margin: 0px;
 	}
 	div:nth-of-type(2n+2) {

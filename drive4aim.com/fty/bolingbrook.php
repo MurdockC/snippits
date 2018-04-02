@@ -8,7 +8,7 @@
 	<div class="container introContainer">
 	  	<div>
 			<h1>Bolingbrook, IL</h1>
-			<p>Regional reefer runs, single zone temp control, dry grocery and produce, electric pallet jack delivery, all dock deliveries, 2-4 runs per week all deliveries between 4am and 11am. Stop off pay - all pickup and delivery events will be paid a stop of $25 each(detention paid after an hour, so paid for all hours) except those that occur at the home domicile (Home Distribution Center).</p>
+			<p>Regional reefer runs, single zone temp control, dry grocery and produce, electric pallet jack delivery, all dock deliveries, 2-4 runs per week all deliveries between 4am and 11am. Stop off pay - all pickup and delivery events will be paid a stop of $25 each (detention paid after an hour, so paid for all hours) except those that occur at the home domicile (Home Distribution Center).</p>
 	    </div>
 	</div>
 	<div class="container">
@@ -18,10 +18,10 @@
 					<div class="callout-title">
 						<p><i class="fa fa-money"></i></span><br></p>
 						<h2>COMPETITIVE PAY</h2>
-						<h4>Average $75,000 a year</h4>
+						<h4>Average $75,000 to $90,000 a&nbspyear</h4>
 					</div>
 					<div>
-						<p><strong>$1,400 Weekly Average</strong>, all pay is based on mileage and stops.</p>
+						<p><strong>$1,500 Weekly Average</strong>, all pay is based on mileage and stops.</p>
 					</div>
 					<div>
 						<p><strong>Paid weekly</strong> via direct deposit on Fridays.</p>
@@ -83,7 +83,7 @@
 		</div>
 		<div>
 			<h2>About <?php echo $company;?></h2>
-			<p><b>Aim Integrated Logistics</b> handles all types of cargo including food service, steel, aluminum, beverages, and specialized commodities. It operates a late model fleet comprised of Flatbed, Van, Sliding Tarp, Reefer, and Doubles Trailers over 22 Million miles annually in service to our clients. Aim Integrated Logistics has been named Transport Topics 21st largest Dedicated Provider, as well as a member of the EPA SmartWays program focused on improving fleet MPG while reducing our carbon footprint.</p>
+			<p><b>AIM Transportation Solutions</b> handles all types of cargo including food service, steel, aluminum, beverages, and specialized commodities. It operates a late model fleet comprised of Flatbed, Van, Sliding Tarp, Reefer, and Doubles Trailers over 22 Million miles annually in service to our clients. AIM Transportation Solutions has been named Transport Topics 21st largest Dedicated Provider, as well as a member of the EPA SmartWays program focused on improving fleet MPG while reducing our carbon footprint.</p>
 		</div>
 	</div>
 </section>

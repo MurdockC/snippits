@@ -3,7 +3,7 @@
 	$pageTitle = "Privacy";
 	$pageName = "privacy";
 	include('assets/includes/header.php');
-	$company = 'drive4coalcitycob.com';
+	$company = 'joincombinedtransport.com';
 ?>
 <style>
 h1, h2 {

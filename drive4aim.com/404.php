@@ -2,11 +2,11 @@
 	//SETS PAGE INFO AT THE TOP OF THE HEADER
 	$pageTitle = "404";
 	$pageName = "404";
-	
+
 
 	// CONTAINS PHONE NUMBERS, COOKIES, GLOBAL VARIABLES, ETC //
 	require_once('assets/source/source.php');
-	
+
 	// THESE GET SET IN THE CONFIG & SOURCE FILES //
 	$siteURL = source::getUrl();
 	$siteTitle = source::getTitle();
@@ -35,7 +35,7 @@
       </div>
     </div>
   </div>
-</div> 
+</div>
 <div style="position:fixed; bottom: 0px; width: 100%;" class="sticky-footer">
   <?php include ('assets/includes/footer.php'); ?>
 </div>

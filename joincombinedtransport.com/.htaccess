@@ -16,8 +16,8 @@ RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.+)$ /$1.php [L,QSA]
 
 # remove www
-RewriteCond %{HTTP_HOST} ^www.drive4coalcitycob.com [NC]
-RewriteRule ^(.*)$ http://drive4coalcitycob.com/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^www.joincombinedtransport.com [NC]
+RewriteRule ^(.*)$ http://joincombinedtransport.com/$1 [L,R=301]
 
 ErrorDocument 404 /404.php
 

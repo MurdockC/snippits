@@ -7,7 +7,7 @@
 <section>
 	<div class="container introContainer">
 	  	<div>
-			<h1>Valparaiso, IN</h1> 
+			<h1>Valparaiso, IN</h1>
 			<p>Class A or Class B Drivers will operate a 24ft straight truck and perform store deliveries that include delivering freight to NO dock facilities. Drivers make multiple ­stops on their routes and will unload freight at each customer stop using ramp & dollies to make inside deliveries. This position is not driving only - customer service & delivery skills are a must.</p>
 	    </div>
 	</div>
@@ -82,7 +82,7 @@
 		</div>
 		<div>
 			<h2>About <?php echo $company;?></h2>
-			<p><b>Aim Integrated Logistics</b> handles all types of cargo including food service, steel, aluminum, beverages, and specialized commodities. It operates a late model fleet comprised of Flatbed, Van, Sliding Tarp, Reefer, and Doubles Trailers over 22 Million miles annually in service to our clients. Aim Integrated Logistics has been named Transport Topics 21st largest Dedicated Provider, as well as a member of the EPA SmartWays program focused on improving fleet MPG while reducing our carbon footprint.</p>
+			<p><b>AIM Transportation Solutions</b> handles all types of cargo including food service, steel, aluminum, beverages, and specialized commodities. It operates a late model fleet comprised of Flatbed, Van, Sliding Tarp, Reefer, and Doubles Trailers over 22 Million miles annually in service to our clients. AIM Transportation Solutions has been named Transport Topics 21st largest Dedicated Provider, as well as a member of the EPA SmartWays program focused on improving fleet MPG while reducing our carbon footprint.</p>
 		</div>
 	</div>
 </section>

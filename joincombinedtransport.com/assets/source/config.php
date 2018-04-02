@@ -21,19 +21,19 @@
 		protected static $tenstreet = '4911';
 
 		// Purely for display in the Email subject line. Capitalize the first letter of each word in the URL.
-		protected static $siteName = '';
+		protected static $siteName = 'joincombinedtransport';
 
 		//Leave blank if they do not want the short forms emailed to them
 		protected static $notify = '';
 
 		// Client Key for the ZipCode API
-		protected static $zipAPIKey = '';
+		protected static $zipAPIKey = 'js-2kfT5R3ogeZCj6pUzigt4dcZrxKTjZjmaKrDvusSbwnrCIRnUQxbNjTImihnHCBX';
 
 		// Set application link
-		protected static $application = '';
+		protected static $application = 'https://intelliapp.driverapponline.com/c/combinedtrans';
 
 		// GID for google phone # sheet
-		protected static $gid = '';
+		protected static $gid = '1420325688';
 
 		// Set URL Parameter Name here
 		protected static $param = 'utm_source';

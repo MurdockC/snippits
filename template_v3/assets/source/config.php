@@ -3,16 +3,16 @@
 	    // Company Information goes here
 
 		// Full url
-		protected static $url = 'rmwsites.com/heyl-new';
+		protected static $url = 'template_v3';
 
 		// Set Company Name for Page Titles
-		protected static $title = 'heyl';
+		protected static $title = 'template_v3.com';
 
 	    // Set Default Source here - no spaces - domain
-		protected static $company  = 'rmwsites.com/heyl-new';
+		protected static $company  = 'template_v3';
 
 		// Set Cookie Name, just the url, with no http: or .com etc --- And No Spaces
-		protected static $name = 'Heyl-new';
+		protected static $name = 'template_v3.com';
 
 		// Default Phone number
 		protected static $phone = '000.000.0000';
@@ -21,7 +21,7 @@
 		protected static $tenstreet = '';
 
 		// Purely for display in the Email subject line. Capitalize the first letter of each word in the URL.
-		protected static $siteName = 'heyl-new.com';
+		protected static $siteName = 'template';
 
 		//Leave blank if they do not want the short forms emailed to them
 		protected static $notify = '';

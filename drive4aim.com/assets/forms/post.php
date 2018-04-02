@@ -18,35 +18,45 @@ $URL_stripped = str_replace('template_2017', '', $URL_strip3);
 $appsEmail = 'apps@' .  $URL_stripped ; //prepends faux email address
 
 // RMW email address to BCC (leave as 'admin@')
-$rmwemail = 'apps@ramseymediaworks.com'; 
+$rmwemail = 'apps@ramseymediaworks.com';
 
 //---------------------------------------------------
 // Don't edit below unless you have a good reason!
 //---------------------------------------------------
 
-//$cdl = $_POST['cdl'];
-//$experience = $_POST['experience'];
-$fullname = $_POST['name'];
-$email = $_POST['content'];
-$phone = $_POST['phone'];
-$address = $_POST['address'];
-$zip = $_POST['zipcode'];
-$city = $_POST['city'];
-$state = $_POST['state'];
-$cdl = $_POST['cdl'];
-$experience = $_POST['experience'];
-$trailertype = $_POST['division'];
-$hazmat = $_POST['hazmat'];
-$tanker = $_POST['tanker'];
-$doubles = $_POST['doubles'];
-$source = $_POST['source'];
-$userIP = $_POST['userIP'];
-$flatbed = $_POST['flatbed'];
-$van = $_POST['van'];
-$sliding = $_POST['sliding'];
-$reefer = $_POST['reefer'];
-$doubles = $_POST['doubles'];
-$straight = $_POST['straight'];
+function test_input($data) {
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	$fullname = test_input($_POST['name']);
+	$email = test_input($_POST['content']);
+	$phone = test_input($_POST['phone']);
+	$address = test_input($_POST['address']);
+	$zip = test_input($_POST['zipcode']);
+	$city = test_input($_POST['city']);
+	$state = test_input($_POST['state']);
+
+	$cdl = test_input($_POST['cdl']);
+	$experience = test_input($_POST['experience']);
+
+	//$trailertype = test_input($_POST['division']);
+	//$hazmat = test_input($_POST['hazmat']);
+	//$tanker = test_input($_POST['tanker']);
+
+	$flatbed = test_input($_POST['flatbed']);
+	$van = test_input($_POST['van']);
+	$sliding = test_input($_POST['sliding']);
+	$reefer = test_input($_POST['reefer']);
+	$doubles = test_input($_POST['doubles']);
+	$straight = test_input($_POST['straight']);
+
+	$source = test_input($_POST['source']);
+	$userIP = test_input($_POST['userIP']);
+}
 
 $recruiterphone	= $_POST['recruiterphone'];
 $jobID = $_POST['jobid'];
@@ -77,11 +87,11 @@ $sql = "INSERT INTO $databaseTable (First, Last, Email, Phone, Address, City, St
 // Honeypot Captcha to repel spambots
 $bot = $_POST['email'];
 if (!empty($bot)) {
-	header("Location: $siteURL");
+	$redirect = "Location: $siteURL";
 }
 
-if(empty($fullname)) {  $errors .= "\n Error: First Name Required.";}
-if(empty($email)) {  $errors .= "\n Error: Email required.";}
+if(empty($fullname) || !preg_match("/^[a-zA-Z ]*$/", $fullname)) {  $errors .= "\n Error: A Name is Required.";}
+if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {  $errors .= "\n Error: A Valid Email is Required.";}
 if(empty($phone)) {  $errors .= "\n Error: Phone number required.";}
 
 if ($errors) {
@@ -133,10 +143,10 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 			// After sending and insertion let know it worked, or didn't
 		    if (mysqli_query($link, $sql)) {
 		    	// Redirect to the 'Success' page
-		        header("Location: {$siteURL}success?source=$source&recruiterphone=$recruiterphone&name=$first");
+		        $redirect = "Location: {$siteURL}success?source=$source&recruiterphone=$recruiterphone&name=$first";
 		        mysqli_close($link);
 		    } else {
-		        echo "Error: " . mysqli_error($link);
+		        $errors .= "Error: " . mysqli_error($link);
 		    }
 
 
@@ -174,16 +184,6 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 				</PersonalData>
 				<ApplicationData>
 					<AppReferrer>' . $source . '</AppReferrer>
-					<Licenses>
-						<License>
-							<CommercialDriversLicense>'. $cdl . '</CommercialDriversLicense>
-						</License>
-				        <Endorsements>
-				          <Endorsement>' . $tanker . '</Endorsement>
-				          <Endorsement>' . $hazmat . '</Endorsement>
-				          <Endorsement>' . $doubles . '</Endorsement>
-				        </Endorsements>
-					</Licenses>
 					<DisplayFields>
 						<DisplayField>
 							<DisplayId>experience</DisplayId>
@@ -193,12 +193,17 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 						<DisplayField>
 							<DisplayId>trailertype</DisplayId>
 							<DisplayPrompt>Trailer Type</DisplayPrompt>
-							<DisplayValue>' . $trailertype . '</DisplayValue>
+							<DisplayValue>' . $flatbed . ' ' . $van . ' ' . $sliding . ' ' . $reefer . ' ' . $doubles . ' ' . $straight . '</DisplayValue>
 						</DisplayField>
 						<DisplayField>
 							<DisplayId>location</DisplayId>
 							<DisplayPrompt>Location Applied For</DisplayPrompt>
 							<DisplayValue>' . $location . '</DisplayValue>
+						</DisplayField>
+						<DisplayField>
+							<DisplayId>cdl</DisplayId>
+							<DisplayPrompt>Valid CDL</DisplayPrompt>
+							<DisplayValue>' . $cdl . '</DisplayValue>
 						</DisplayField>
 					</DisplayFields>
 				</ApplicationData>
@@ -220,12 +225,12 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 			$result = curl_exec($ch);
 
 			curl_close($ch);
-			
+
 
 		    // FORM REACTOR - SEND FORM TO CALL TRACKING METRICS FOR PHONE CALLS
 
 
-				// There are currently 8 locations with different groups of phone numbers. I'm going to do 8 different if statements with if statements inside for each source. 
+				// There are currently 8 locations with different groups of phone numbers. I'm going to do 8 different if statements with if statements inside for each source.
 				if ($location == "fxp-valparaiso") {
 					if (strpos($source, 'indeed') !== false) {
 						$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A9B7F0230B39FA1F2F31FF08E53DC3659CCE58236EA0EECFB'); // Family Express (FXP) - Valparaiso Indeed
@@ -354,6 +359,22 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 					} else {
 						$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A9B7F0230B39FA1F26544E85BC6F87B8F9867A2E4615FAD99'); // Sapa Indalloy (SPI) - Romulus Landing Page
 					}
+				} elseif ($location == "ffm-cranberr-township") {
+					if (strpos($source, 'craigslist') !== false) {
+						$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A9B7F0230B39FA1F2F0CC699BCAFCCE96F8508E8E8B207FD5'); // craigslist
+					} elseif (strpos($source, 'google') !== false) {
+						$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A9B7F0230B39FA1F245F336456E70AC803F387B455E3E7B8D'); // google
+					} elseif (strpos($source, 'indeed') !== false) {
+						$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A9B7F0230B39FA1F202F6A2E6FCC233C7616BD70ED56FE577'); // indeed
+					} elseif (strpos($source, 'jobs2careers') !== false) {
+						$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A9B7F0230B39FA1F2B4CA18AE1F9D191A5DF6001004509A02'); // jobs2careers
+					} elseif (strpos($source, 'socialedge') !== false) {
+						$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A9B7F0230B39FA1F2CBC5E1ED71CE02D3B4C929CFE40B50FA'); // socialedge
+					} elseif (strpos($source, 'cdljobnow') !== false) {
+						$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A9B7F0230B39FA1F2F5C46DCFCA4395A7529B87AB8381AC69'); // cdljobnow
+					} else {
+						$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A9B7F0230B39FA1F27DF0217F17E32A9C70BDDC8BC5533E17'); // upward
+					}
 				} else {
 					// If all else fails I'm just gonna send them to the first Default Landing Page on the list .... it shouldn't make it here, ever.
 					$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A9B7F0230B39FA1F297A51336AE6766A4450FF2C5F07647C5'); // Family Express (FXP) - Valparaiso Landing Page
@@ -377,9 +398,9 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 				$err = curl_error($curl);
 
 				curl_close($curl);
-				
-			// END FORM REACTOR			
-			
+
+			// END FORM REACTOR
+
 
 			// Send an email copy of the submitted data to RMW
 			$to = $rmwemail . ', ' . $notify;
@@ -423,15 +444,18 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 			// After sending and insertion let know it worked, or didn't
 		    if (mysqli_query($link, $sql)) {
 		    	// Redirect to the 'Success' page
-		        header("Location: {$siteURL}success?source=$source&recruiterphone=$recruiterphone&name=$first");
+		        $redirect = "Location: {$siteURL}success?source=$source&recruiterphone=$recruiterphone&name=$first";
 		        mysqli_close($link);
 		    } else {
-		        echo "Error: " . mysqli_error($link);
+		        $errors .= "Error: " . mysqli_error($link);
 		    }
 		}
 	} else {
 		// Redirect to the 'Error' page
-		header("Location: {$siteURL}errors?error=$errors");
+		$errors = str_replace("\n", '', $errors);
+		$redirect = "Location: {$siteURL}errors?error=$errors";
 	}
+
+	header($redirect);
 
 ?>

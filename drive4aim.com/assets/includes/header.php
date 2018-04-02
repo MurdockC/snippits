@@ -16,7 +16,7 @@
 			$phone = '855.279.2735';
 		elseif ($location == "fty-bolingbrook")
 			$phone = '844.311.5534';
-		elseif ($location == "fxp-valparaiso")
+		elseif ($location == "fxp-valparaiso" || $pageName == "Family Express")
 			$phone = '855.736.4221';
 		elseif ($location == "spc-cressona")
 			$phone = '855.231.7346';
@@ -26,9 +26,11 @@
 			$phone = '855.910.8966';
 		elseif ($location == "spi-romulus")
 			$phone = '855.781.8917';
+		elseif ($location == "ffm-cranberry-township")
+			$phone = '855.208.0712';
 		else
 			$phone = '';;
-
+å
 ?>
 <html>
 <head>
@@ -64,7 +66,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<div class="container">
 			<div class="campaign">
 				<h1 style="max-width:500px;">Our routes lead you home.</h1>
-				<p style="font-size:1.6em;max-width:500px;">At least 2 consecutive days a week. As a delivery driver with AIM, you can earn a living on the road without having to live there.</p>
+				<?php if ($pageName == "FFM" || $pageName =="FXP") : ?>
+					<p style="font-size:1.6em;max-width:500px;">Every day. As a delivery driver with AIM, you can earn a good living on the road without having to live there.</p>
+				<?php else : ?>
+					<p style="font-size:1.6em;max-width:500px;">At least 2 consecutive days a week. As a delivery driver with AIM, you can earn a living on the road without having to live there.</p>
+				<?php endif ; ?>
 				<?php if ($pageName == "Home") : ?>
 				<?php else : ?>
 				   <a class="button button-primary" href="#" id="toform">Start Now</a>

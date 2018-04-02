@@ -7,6 +7,8 @@ Options +FollowSymlinks
 
 RewriteEngine On
 
+ErrorDocument 404 /404.php
+
 RewriteBase /
 
 # ignore extension

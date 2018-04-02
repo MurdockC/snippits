@@ -1,0 +1,191 @@
+{layout="layouts/new_look_layout"}
+
+{if segment_1 == "memphis"}
+	{redirect="memphis-tn"}
+{/if}
+
+{if segment_1 == "whychoosemiller"}
+	{redirect="{site_url}"}
+{/if}
+
+<div class="container">
+{exp:channel:entries
+	channel="main_content"
+	disable="pagination|member_data|categories"
+	limit="1"
+	sort="asc"
+	}
+
+{layout:set name="title" value="{title}"}
+
+		{!-- If homepage need a sidebar with testimonials --}
+		{if entry_id == '5'}
+
+		<div class="six columns">
+			<h2>ARE YOU AVERAGE OR ARE YOU A CUT ABOVE?</h2>
+			{main_content}
+		</div>
+
+		<div class="six columns">
+			<h2>Why Choose Miller?</h2>
+			<img style="float:left; padding: 0px 15px 5px 0px;" src="http://www.millerdriving.com/images/uploads/charles.png" alt="Charles Gaines" />
+			<h4>Charles Gaines</h4>
+			<h5><em>Contractor since 1998</em></h5>
+			<p>Having been a professional driver for over 20 years, it is safe to say that Charles Gaines knows a lot about the trucking industry. Charles also knows a good thing when he sees it. Living in Vicksburg, Mississippi, Charles often would see Miller Transporters trucks on the road as well as frequently run into Miller drivers. “I would pass by their trucks a lot, and I always heard good things about them from other drivers…so driving for Miller seemed like a good opportunity,” explains Charles. </p>
+			<div id="charlesGaines" style="display:none;">
+				<p>Thirteen years later, Charles is happy that his initial instincts about Miller were correct. There is not a day that he would trade the decision he made to make the “good move” to Miller.</p>
+				<p>"Miller is a lot different from other companies. They see that I’m a Contractor, but rather than look at me as just a name or a number, they see me a partner,” says Charles. Not only does Miller look at their contractors as business partners, they also go out of their way to help them succeed. “Miller helps get you started in your business. They do everything they can to ensure that, if you’re willing to put in the work and effort, that you will be successful,” adds Charles.</p>
+				<p>Miller is also great about helping people who want to own their own truck realize that dream. “If you want to own a truck, you can come here and get a truck and pay for it while working with no money down. Most companies require money down,” explains Charles.</p>
+				<p>“In a nutshell, if you want to become an Owner Operator, Miller is the best place to come,” exclaims Charles. Charles appreciates all of the opportunities that his career at Miller Transporters has afforded him over the years, and he looks forward to many more. “I LOVE this company! I’m not going anywhere. I will be here forever,” says Charles.</p>
+			</div>
+			<a onclick="toggle_visibility('charlesGaines');">Read More</a>
+			<div class="u-cf"></div><br><br>
+			<img style="float:left; padding: 0px 15px 5px 0px;" src="http://www.millerdriving.com/images/uploads/willie.png" alt="Willie Hill" />
+			<h4>Willie Hill</h4>
+			<h5><em>Company Driver since 1983</em></h5>
+			<p> It is quite rare for someone to work for the same company for ten, or even twenty years. Working for the same company for almost 28 years is even less common. It takes a dedicated, driven individual to accomplish such a feat. For Miller Transporters Company Driver Willie Hill, it’s a simple explanation as to why he’s remained with Miller since 1983. “When you work for a good company, you don’t want to leave. They have been good to me. Almost my whole career has been with Miller,” explains Willie.</p>
+			<div id="willieHill" style="display:none;">
+				<p>The day that Willie first drove a Miller truck was the day that his childhood dream had finally come true. Growing up, he would visit his Aunt who lived down the street from a Miller terminal. Whenever he would pass by it, he would dream about one day having a career as a truck driver for Miller. “I didn’t have much experience when I first came to Miller looking for a job, but they were willing to give me a chance. 28 years later, I can’t tell you how grateful I am that they gave me that chance,” says Willie.</p>
+				<p>Though when he first started with Miller, Willie liked to be home more often to spend time with his then-young children, he now enjoys spending most of his time behind the wheel. “I really enjoy working out on the road. It’s the right fit for me. There’s good equipment, and most importantly, most of the shippers are nice and respectful, which I feel has a lot to do with the Miller name. The Miller name has a great reputation in the industry and I’m proud to drive for them,” explains Willie.</p>
+				<p>Not only does he love the driving part of his job, but he also loves the people at Miller that he gets to work with. “The people here have been great to me from day one! I can’t believe that any other company has people that are as outstanding as the ones I get to work with at Miller,” says Willie. Even when there was some personnel changes within the company (which is to be expected over an almost 30 year span), Willie remained just as happy and impressed with Miller. “Any changes that we’ve been through with people have all been good. In my opinion, the way you define a good company is by the way that their staff treats its employees…even when changes take place,” adds Willie.</p>
+				<p>It’s no surprise that when asked what he loved most about driving for Miller, Willie laughs and says, “Honestly, I know I keep repeating myself, but I really, truly love this company and I can’t imagine working anywhere else!”</p>
+			</div>
+			<a onclick="toggle_visibility('willieHill');">Read More</a>
+
+			<script type="text/javascript">
+			    function toggle_visibility(id) {
+			       var e = document.getElementById(id);
+			       if(e.style.display == 'block')
+			          e.style.display = 'none';
+			       else
+			          e.style.display = 'block';
+			    }
+			</script>
+
+
+		</div>
+
+		{/if}
+
+		{!-- If not homepage or training write content with a side column --}
+		{if entry_id != '5' && entry_id != '317' }
+		<div class="nine columns">
+			{main_content}
+		</div>
+		{/if}
+
+		{!-- If Company Driver page add sidebar --}
+		{if entry_id == '306' }
+		<div class="three columns ">
+			{companydriver-piechart}
+			<br><br>
+			<h2>Terminal Locations</h2>
+			<img id="map" class="scale-with-grid" src="http://www.millerdriving.com/images/uploads/map_company_thumb2.png" alt="map thumb">
+		</div>
+		{/if}
+
+		{!-- If Owner Operators page add sidebar --}
+		{if entry_id == '316' }
+		<div class="three columns ">
+			{owneroperator-piechart}
+			<br><br>
+			<h2>Terminal Locations</h2>
+			<img id="map" class="scale-with-grid" src="http://www.millerdriving.com/images/uploads/map_oo_thumb.png" alt="map thumb">
+		</div>
+		{/if}
+
+		{!-- If Owner Operator Test page add sidebar --}
+		{if entry_id == '419' }
+		<div class="three columns ">
+			{owneroperator-piechart}
+			<br><br>
+			<h2>Terminal Locations</h2>
+			<img id="map" class="scale-with-grid" src="http://www.millerdriving.com/images/uploads/map_oo_thumb.png" alt="map thumb">
+		</div>
+		{/if}
+
+		{!-- If training page include training staff and no side columns --}
+		{if entry_id == '317'}
+
+		<div class="twelve columns">
+			{main_content}
+		</div>
+		<div class="row">
+			<div class="twelve columns">
+				<h2>MEET THE PEOPLE YOU'LL SEE IN ORIENTATION</h2>
+				{embed="_embeds/.training-staff"}
+			</div>
+		</div>
+		{/if}
+
+{/exp:channel:entries}
+</div>
+
+<div class="light-bg quickapp-toggle show" id="shortform">
+	<div class="container">
+		<div class="offset-by-three six columns">
+			{embed=landing_page/form}
+		</div>
+	</div>
+</div>
+<!--
+{!-- If Owner Operators page details to bottom --}
+{if segment_1 == 'ownopp' || segment_1 == 'test'}
+<div class="container">
+	<div class="row">
+		<div class="twelve columns payandbenefits-toggle showhide">
+			<h2>Owner Operator Perks</h2>
+		</div>
+		<div class="four columns">
+			<h3>“No Cost” EasyStart-Up </h3>
+			<p><i>“Why buy a pump when we’ll let you use ours at no charge?”</i></p>
+			<p>It’s financially tough for a contractor to transition to a new carrier and we want to make the transition as easy as possible. Compare our “no cost” start-up to our competitors and you’ll see why it just makes sense to make the move to Miller Transporters.</p>
+		</div>
+		<div class="seven columns">
+			<ul>
+				<li>Miller will provide parts and installation of all pumps, hoses, in-transit heat capability, power take-offs, and fittings. Not only do we not charge, we also maintain the equipment and pump at no charge.</li>
+				<li>If necessary, Miller will also pay to relocate fifth wheel to Miller specifications, removal of hand valve, relocation of equipment to make room for pump installation.</li>
+				<li>Miller will provide the first set of permits at no charge to the Contractor. Contractors will be responsible for the purchase of subsequent permits.</li>
+				<li>Miller will pay for the initial physical and drug screen.</li>
+				<li>Miller provides D.O.T required inspection on Contractor equipment at an interval of 90 days at no cost to the Contractor.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row requirements-toggle showhide">
+		<div class="six columns">
+			<h2>Owner Operator Requirements</h2>
+			<ul>
+				<li>Must have a valid Class-A CDL</li>
+				<li>Tank Truck and Hazardous Materials Endorsements</li>
+				<li>Recent tractor-trailer experience</li>
+			</ul>
+		</div>
+		<div class="six columns">
+			<img id="map" class="scale-with-grid" src="http://www.millerdriving.com/images/uploads/map_oo_thumb.png" alt="map thumb">
+		</div>
+	</div>
+
+</div>
+{/if}
+
+{!-- If Company Page Add map and qualifications under form --}
+{if segment_1 == 'company' }
+<div class="container">
+
+	<div class="row requirements-toggle showhide">
+		<div class="six columns">
+			<img id="map" class="scale-with-grid" src="http://www.millerdriving.com/images/uploads/map_company_thumb2.png" alt="map thumb">
+		</div>
+		<div class="six columns">
+			<h2>QUALIFICATIONS</h2>
+			<ul>
+		    	<li>Must have a valid Class-A CDL with Tank Truck and Hazardous Materials Endorsements</li>
+				<li>Recent tractor-trailer experience</li>
+			</ul>
+		</div>
+	</div>
+
+</div>
+{/if}
+-->

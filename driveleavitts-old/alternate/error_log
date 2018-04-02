@@ -1,0 +1,12 @@
+[17-Aug-2015 09:15:27 Europe/Moscow] PHP Warning:  array_combine() expects parameter 1 to be array, null given in /home/leavitts/public_html/alternate/assets/source/source.php on line 15
+[17-Aug-2015 09:15:27 Europe/Moscow] PHP Warning:  Invalid argument supplied for foreach() in /home/leavitts/public_html/alternate/assets/source/source.php on line 69
+[19-Aug-2015 23:07:39 Europe/Moscow] PHP Warning:  array_combine() expects parameter 1 to be array, null given in /home/leavitts/public_html/alternate/assets/source/source.php on line 15
+[19-Aug-2015 23:07:39 Europe/Moscow] PHP Warning:  Invalid argument supplied for foreach() in /home/leavitts/public_html/alternate/assets/source/source.php on line 69
+[24-Aug-2015 15:10:40 Europe/Moscow] PHP Warning:  array_combine() expects parameter 1 to be array, null given in /home/leavitts/public_html/alternate/assets/source/source.php on line 15
+[24-Aug-2015 15:10:40 Europe/Moscow] PHP Warning:  Invalid argument supplied for foreach() in /home/leavitts/public_html/alternate/assets/source/source.php on line 69
+[26-Aug-2015 23:45:02 Europe/Moscow] PHP Warning:  array_combine() expects parameter 1 to be array, null given in /home/leavitts/public_html/alternate/assets/source/source.php on line 15
+[26-Aug-2015 23:45:02 Europe/Moscow] PHP Warning:  Invalid argument supplied for foreach() in /home/leavitts/public_html/alternate/assets/source/source.php on line 69
+[10-Sep-2015 11:51:51 Europe/Moscow] PHP Warning:  array_combine() expects parameter 1 to be array, null given in /home/leavitts/public_html/alternate/assets/source/source.php on line 15
+[10-Sep-2015 11:51:51 Europe/Moscow] PHP Warning:  Invalid argument supplied for foreach() in /home/leavitts/public_html/alternate/assets/source/source.php on line 69
+[14-Sep-2015 06:43:19 Europe/Moscow] PHP Warning:  array_combine() expects parameter 1 to be array, null given in /home/leavitts/public_html/alternate/assets/source/source.php on line 15
+[14-Sep-2015 06:43:19 Europe/Moscow] PHP Warning:  Invalid argument supplied for foreach() in /home/leavitts/public_html/alternate/assets/source/source.php on line 69

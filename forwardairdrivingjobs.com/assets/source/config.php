@@ -25,7 +25,7 @@
 		protected static $siteName = 'ForwardAirDrivingJobs.com';
 
 		//Leave blank if they do not want the short forms emailed to them
-		protected static $notify = 'caleb@ramseymediaworks.com';
+		protected static $notify = '';
 
 		// Client Key for the ZipCode API
 		protected static $zipAPIKey = 'js-y2U0Uwsav7nG5xkqxjHzWyropBUMWxjuAevuKXFg52XbAhB8BiHxR9WgKQ3HoncZ';
