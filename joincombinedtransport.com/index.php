@@ -31,7 +31,7 @@
 
 						<h4 class="margin--tb-sm text--left ">What You'll Earn</h4>
 						<ul class="margin--sm">
-							<li class="margin--tb-xs text--left"><b>$1,250</b> — Weekly average</li>
+							<li class="margin--tb-xs text--left"><b>$1,250</b>/week average</li>
 							<li class="margin--tb-md text--left"><b>Up to 54 CPM Starting</b> — Plus yearly increases</li>
 							<li class="margin--tb-md text--left"><b>Extra Pay</b> — For training, layover, detention, breakdown, tarping, set-up, take-down, and trips to Canada</li>
 						</ul>

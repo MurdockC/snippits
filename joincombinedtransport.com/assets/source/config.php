@@ -24,7 +24,7 @@
 		protected static $siteName = 'joincombinedtransport';
 
 		//Leave blank if they do not want the short forms emailed to them
-		protected static $notify = '';
+		protected static $notify = 'careercenter@combinedtransport.com';
 
 		// Client Key for the ZipCode API
 		protected static $zipAPIKey = 'js-2kfT5R3ogeZCj6pUzigt4dcZrxKTjZjmaKrDvusSbwnrCIRnUQxbNjTImihnHCBX';

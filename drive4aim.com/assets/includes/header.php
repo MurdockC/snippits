@@ -1,6 +1,7 @@
 <?php
 	// CONTAINS PHONE NUMBERS, COOKIES, GLOBAL VARIABLES, ETC //
 	require_once $_SERVER['DOCUMENT_ROOT'] . ('/assets/source/source.php');
+	//require_once ('assets/source/source.php');
 
 
 	// THESE GET SET IN THE CONFIG & SOURCE FILES //
@@ -28,9 +29,15 @@
 			$phone = '855.781.8917';
 		elseif ($location == "ffm-cranberry-township")
 			$phone = '855.208.0712';
+		elseif ($location == "penn-event")
+			$phone = '877.250.1664';
+		elseif ($location == "illinois-event")
+				$phone = '877.895.9685';
+		elseif ($location == "cressona-event")
+				$phone = '877.960.1121';
 		else
-			$phone = '';;
-å
+			$phone = '';
+
 ?>
 <html>
 <head>
@@ -56,7 +63,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="campaign van-campaign">
 		<div style="position: relative; z-index: 1;" class="container_nav">
 			<div class="container_nav--padding">
+				<?php if ($pageName == "pennsylvania-event" || $pageName == "illinois-event" || $pageName == "cressona-event" ) : ?>
+					<a href="<?php echo $siteURL; ?>"><img class="logo" src="<?php echo $siteURL; ?>assets/images/logo-old.png" /></a>
+				<?php else : ?>
 				<a href="<?php echo $siteURL; ?>"><img class="logo" src="<?php echo $siteURL; ?>assets/images/logo.png" /></a>
+				<?php endif ; ?>
 				<?php if ($phone != '' && $phone != '000.000.0000'): ?>
 				<a class="phoneIcon" href="tel:<?php echo $phone; ?>"><i class="fa fa-phone" aria-hidden="true"></i></a>
 				<a class="phone" href="tel:<?php echo $phone; ?>">Call Us! <span><?php echo $phone; ?></span></a>
@@ -65,8 +76,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 		<div class="container">
 			<div class="campaign">
-				<h1 style="max-width:500px;">Our routes lead you home.</h1>
-				<?php if ($pageName == "FFM" || $pageName =="FXP") : ?>
+				<?php if ($pageName != "pennsylvania-event" && $pageName != "illinois-event" && $pageName != "cressona-event")   : ?><h1 style="max-width:500px;">Our routes lead you home.</h1><?php endif; ?>
+				<?php if ($pageName == "pennsylvania-event" || $pageName == "illinois-event" || $pageName == "cressona-event" ) : ?>
+					<p style="font-size:1.6em;max-width:500px;">Due to the growing demand for our services in your area, we are looking to add Drivers and Mechanics to our team.</p>
+				<?php elseif ($pageName == "FFM" || $pageName =="FXP") : ?>
 					<p style="font-size:1.6em;max-width:500px;">Every day. As a delivery driver with AIM, you can earn a good living on the road without having to live there.</p>
 				<?php else : ?>
 					<p style="font-size:1.6em;max-width:500px;">At least 2 consecutive days a week. As a delivery driver with AIM, you can earn a living on the road without having to live there.</p>

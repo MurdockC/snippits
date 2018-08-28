@@ -11,7 +11,7 @@
 						<div class="container--flex container--1200 jc--c ai--c ">
 							<div class="container--flex container--column jc--c ai--c column bg-">
 								<h1 class="job__title">Less Than Truckload (LTL)</h1>
-								<p>In this LTL position, you'll haul expedited loads from terminal to terminal.</p>
+								<p>In this LTL position, you'll haul lightweight freight between terminals. Loads are 100% no-touch and drop-and-hook.</p>
 							</div>
 						</div>
 				</section>
@@ -21,7 +21,7 @@
 						<div class="container--flex margin--lg container--column-sm">
 							<h4 style="margin-bottom: 5px;" class="margin--tb-sm text--left ">Solo Owner Operator Pay</h4>
 							<ul class="margin--sm">
-								<li class="margin--tb-xs text--left">$1.05 / loaded mile + FSC</li>
+								<li class="margin--tb-xs text--left">$1.10 / loaded mile + FSC</li>
 								<li class="margin--tb-xs text--left">$1.02 / empty mile + FSC</li>
 								<li class="margin--tb-xs text--left">$1,500 Sign On Bonus</li>
 							</ul>
@@ -31,7 +31,7 @@ $0.02 for a truck 5 years old or newer. The estimate is for 52 weeks and include
 empty miles and fuel surcharge.</small>
 							<h4 style="margin-bottom: 5px;" class="margin--tb-sm text--left ">Team Owner Operator Pay</h4>
 							<ul class="margin--sm">
-								<li class="margin--tb-xs text--left">$1.15 / loaded mile + FSC</li>
+								<li class="margin--tb-xs text--left">$1.20 / loaded mile + FSC</li>
 								<li class="margin--tb-md text--left">$1.02 / empty mile + FSC</li>
 								<li class="margin--tb-md text--left">$3,000 Sign On Bonus</li>
 							</ul>
@@ -79,7 +79,6 @@ for empty miles and fuel surcharge.</small>
 						 <li class="margin--tb-md text--left">12 months of driving experience in the past 3 years or 24 months in the past 5 years</li>
 						 <li class="margin--tb-md text--left">No more than 2 violations on MVR for past 36 months</li>
 						 <li class="margin--tb-md text--left">Must adhere to all DOT requirements & regulations</li>
-						 <li class="margin--tb-md text--left">All applicants are subject to a criminal background investigation</li>
 					 </ul>
 					</div>
 			 </div>

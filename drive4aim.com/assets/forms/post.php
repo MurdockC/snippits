@@ -359,7 +359,7 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 					} else {
 						$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A9B7F0230B39FA1F26544E85BC6F87B8F9867A2E4615FAD99'); // Sapa Indalloy (SPI) - Romulus Landing Page
 					}
-				} elseif ($location == "ffm-cranberr-township") {
+				} elseif ($location == "ffm-cranberry-township") {
 					if (strpos($source, 'craigslist') !== false) {
 						$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A9B7F0230B39FA1F2F0CC699BCAFCCE96F8508E8E8B207FD5'); // craigslist
 					} elseif (strpos($source, 'google') !== false) {

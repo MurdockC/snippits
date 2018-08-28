@@ -120,6 +120,47 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 
 			mail($to,$email_subject,$message,$headers);
 
+			// FORM REACTOR - SEND FORM TO CALL TRACKING METRICS FOR PHONE CALLS
+
+			// The ...... is unique to each FormReactor > Get this link from Numbers > Form Reactors > Edit > REST API at the bottom of the page.
+			if (strpos($source, 'cdljobnow') !== false) {
+				$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A37F7A26B1ADE0FA9DABCC26E755EC357FEE20A021E12885B'); //CDLJobNow
+			} if (strpos($source, 'cdllife') !== false) {
+				$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A37F7A26B1ADE0FA9CD47EBFF2EC9050E0CE9877A2E859A8E'); //CDLLife
+			} if (strpos($source, 'indeed') !== false) {
+				$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A37F7A26B1ADE0FA96553A1428CFB6ABEE738153CADB740BF'); //Indeed
+			} if (strpos($source, 'jobs2careers') !== false) {
+				$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A37F7A26B1ADE0FA924C9FDDD57209489E3EDAA1B0005ABB0'); //Jobs2Careers
+			} if (strpos($source, 'google') !== false) {
+				$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A37F7A26B1ADE0FA9C99168FD5061F32480251DEE68EE9592'); //Google
+			} if (strpos($source, 'socialedge') !== false) {
+				$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A37F7A26B1ADE0FA96453D54F7EFBE0E302BB31A0278F14B9'); //SocialEdge
+			} else {
+				$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A37F7A26B1ADE0FA9362DF62F2E3D98C9B8FE0A026152B52F'); // Default LandingPage
+			}
+
+			curl_setopt_array($curl, array(
+			  CURLOPT_RETURNTRANSFER => true,
+			  CURLOPT_ENCODING => "",
+			  CURLOPT_MAXREDIRS => 10,
+			  CURLOPT_TIMEOUT => 30,
+			  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			  CURLOPT_CUSTOMREQUEST => "POST",
+			  CURLOPT_POSTFIELDS => '{ "caller_name":"' . $fullname . '", "phone_number":"' . $phone . '", "custom_source":"' . $source . '" }', // Pulls in from our form info
+			  CURLOPT_HTTPHEADER => array(
+			    'Content-Type:application/json',
+				'Authorization: Basic '. base64_encode("ec676d1f4d869b153af91796705d951e:dac8cbe2d2779ef7c816d2804731541f434b") // Secret key & access code are available in Settings > Agency Settings > API Integration. Same for all sites.
+			  ),
+			));
+
+			$result = curl_exec($curl);
+			$err = curl_error($curl);
+
+			curl_close($curl);
+
+			// END FORM REACTOR
+			
+
 			$link = mysqli_connect( $db_host, $db_username, $db_password, $db_name);
 			// $input = mysql_select_db($db_name, $link);
 			// Check connection
@@ -132,7 +173,7 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 		        $redirect = "Location: {$siteURL}/success?source=$source&recruiterphone=$recruiterphone&name=$first";
 		        mysqli_close($link);
 		    } else {
-		        $errors .= "Error: " . mysqli_error($link);				
+		        $errors .= "Error: " . mysqli_error($link);
 		        $errors = str_replace("\n", '', $errors);
 				$redirect = "Location: {$siteURL}errors?error=$errors";
 		    }
@@ -243,6 +284,46 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 
 			mail($to,$email_subject,$message,$headers);
 
+			// FORM REACTOR - SEND FORM TO CALL TRACKING METRICS FOR PHONE CALLS
+
+			// The ...... is unique to each FormReactor > Get this link from Numbers > Form Reactors > Edit > REST API at the bottom of the page.
+			if (strpos($source, 'cdljobnow') !== false) {
+				$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A37F7A26B1ADE0FA9DABCC26E755EC357FEE20A021E12885B'); //CDLJobNow
+			} if (strpos($source, 'cdllife') !== false) {
+				$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A37F7A26B1ADE0FA9CD47EBFF2EC9050E0CE9877A2E859A8E'); //CDLLife
+			} if (strpos($source, 'indeed') !== false) {
+				$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A37F7A26B1ADE0FA96553A1428CFB6ABEE738153CADB740BF'); //Indeed
+			} if (strpos($source, 'jobs2careers') !== false) {
+				$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A37F7A26B1ADE0FA924C9FDDD57209489E3EDAA1B0005ABB0'); //Jobs2Careers
+			} if (strpos($source, 'google') !== false) {
+				$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A37F7A26B1ADE0FA9C99168FD5061F32480251DEE68EE9592'); //Google
+			} if (strpos($source, 'socialedge') !== false) {
+				$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A37F7A26B1ADE0FA96453D54F7EFBE0E302BB31A0278F14B9'); //SocialEdge
+			} else {
+				$curl = curl_init('https://api.calltrackingmetrics.com/api/v1/formreactor/FRT472ABB2C5B9B141A37F7A26B1ADE0FA9362DF62F2E3D98C9B8FE0A026152B52F'); // Default LandingPage
+			}
+
+			curl_setopt_array($curl, array(
+			  CURLOPT_RETURNTRANSFER => true,
+			  CURLOPT_ENCODING => "",
+			  CURLOPT_MAXREDIRS => 10,
+			  CURLOPT_TIMEOUT => 30,
+			  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			  CURLOPT_CUSTOMREQUEST => "POST",
+			  CURLOPT_POSTFIELDS => '{ "caller_name":"' . $fullname . '", "phone_number":"' . $phone . '", "custom_source":"' . $source . '" }', // Pulls in from our form info
+			  CURLOPT_HTTPHEADER => array(
+			    'Content-Type:application/json',
+				'Authorization: Basic '. base64_encode("ec676d1f4d869b153af91796705d951e:dac8cbe2d2779ef7c816d2804731541f434b") // Secret key & access code are available in Settings > Agency Settings > API Integration. Same for all sites.
+			  ),
+			));
+
+			$result = curl_exec($curl);
+			$err = curl_error($curl);
+
+			curl_close($curl);
+	
+			// END FORM REACTOR
+
 			$link = mysqli_connect( $db_host, $db_username, $db_password, $db_name);
 			// $input = mysql_select_db($db_name, $link);
 			// Check connection
@@ -266,7 +347,7 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 		$errors = str_replace("\n", '', $errors);
 		$redirect = "Location: {$siteURL}errors?error=$errors";
 	}
-	
+
 	header($redirect);
 
 ?>

@@ -9,9 +9,8 @@
     		<section id="body-content" class="bg-light container container--full-width padding--lg ai--c jc--c container--flex bg-secondary">
 						<div class="container--flex container--1200 jc--c ai--c ">
 							<div class="container--flex container--column jc--c ai--c column bg-">
-								<h1 class="job__title">Truckload Xpedited (TLX)</h1>
-								<p>As a TLX driver you'll handle full expedited loads—long haul, regional, and local—throughout the
-US, Canada, and Mexico.</p>
+								<h1 class="job__title">Truckload Services (TLS)</h1>
+								<p>As a TLS driver you'll handle full expedited loads throughout the US, Canada, and Mexico. All freight is no-touch, drop-and-hook, and lightweight.</p>
 							</div>
 						</div>
 				</section>
@@ -80,7 +79,6 @@ for empty miles and fuel surcharge.</small>
 						 <li class="margin--tb-md text--left">12 months of driving experience in the past 3 years or 24 months in the past 5 years</li>
 						 <li class="margin--tb-md text--left">No more than 2 violations on MVR for past 36 months</li>
 						 <li class="margin--tb-md text--left">Must adhere to all DOT requirements & regulations</li>
-						 <li class="margin--tb-md text--left">All applicants are subject to a criminal background investigation</li>
 					 </ul>
 					</div>
 			 </div>

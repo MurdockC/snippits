@@ -56,7 +56,7 @@
 						<p><strong>Direct store delivery</strong> with multiple stops in a 600-mile radius.</p>
 					</div>
 					<div>
-						<p><strong>1900 Average miles/week</strong></p>
+						<p><strong>1900 - 2600 Average miles/week</strong></p>
 					</div>
 					<div>
 						<p><strong>60 hours a week average</strong></p>
@@ -83,7 +83,7 @@
 		</div>
 		<div>
 			<h2>About <?php echo $company;?></h2>
-			<p><b>AIM Transportation Solutions</b> handles all types of cargo including food service, steel, aluminum, beverages, and specialized commodities. It operates a late model fleet comprised of Flatbed, Van, Sliding Tarp, Reefer, and Doubles Trailers over 22 Million miles annually in service to our clients. AIM Transportation Solutions has been named Transport Topics 21st largest Dedicated Provider, as well as a member of the EPA SmartWays program focused on improving fleet MPG while reducing our carbon footprint.</p>
+			<p><b>AIM Integrated Logistics</b> handles all types of cargo including food service, steel, aluminum, beverages, and specialized commodities. It operates a late model fleet comprised of Flatbed, Van, Sliding Tarp, Reefer, and Doubles Trailers over 22 Million miles annually in service to our clients. AIM Integrated Logistics has been named Transport Topics 21st largest Dedicated Provider, as well as a member of the EPA SmartWays program focused on improving fleet MPG while reducing our carbon footprint.</p>
 		</div>
 	</div>
 </section>

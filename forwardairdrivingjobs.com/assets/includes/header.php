@@ -15,7 +15,7 @@
 
 <?php
  if (!isset($_GET['utm_source']) && !isset($_COOKIE["forwardairdrivingjobs"])){
-	if ($pageName == "tlx") :
+	if ($pageName == "tls" || $pageName == "tlx") :
 	$phone = '855.908.4136';
 	else :
 		$phone = "855.466.4522";
@@ -52,12 +52,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<div class="bg-white container container--full-width container--flex ai--c jc--c padding--lg">
 			<div class="nav container container--1200 container--flex">
 				<?php
-				if ($pageName == "tlx") : ?>
-				<a href="/tlx">
-			  <?php elseif ($pageName =="ltl") : ?>
-				<a href="/index">
+				if ($pageName == "tls" || $pageName == "tlx") : ?>
+				<a href="/tls"><img class="header__logo--img" src="assets/images/dist/logo-tls.png" alt="Company Logo"></a>
+			  <?php else : ?>
+				<a href="/index"><img class="header__logo--img" src="assets/images/dist/logo.png" alt="Company Logo"></a>
 			<?php endif ; ?>
-					<img class="header__logo--img" src="assets/images/dist/logo.png" alt="Company Logo"></a>
+
 
 				<!-- <span class="desktop-hidden container--flex">
 						<a onclick="doThis()">
@@ -101,8 +101,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<div class="campaign-text">
 							<h1 style="font-size: 2em;" class="margin--md txt-w">Let's get right<br>to the point.</h1>
 							<h4 style="color: white;" class="margin--md">That’s our job as an expedited carrier.</h4>
-							<p class="margin--md txt-w">If you’re an owner operator who enjoys getting right
-from point A to point B, and getting paid well for it, then we’re the carrier for you.</p>
+							<p class="margin--md txt-w">If you’re an owner operator who likes to get straight from point A to B — and get well paid for it — then Forward Air is for you. We’ve proved that point with two pay increases in just eight months.</p>
 							<div class="container campaign__buttons--container container--flex wrap">
 								<a href="<?php echo $app ; ?>?r=rmw_<?php echo $origin ; ?>" class="container--flex campaign__button button--primary margin--md flex-grow ai--c jc--c flex-grow"><button>Apply Now!</button></a>
 								<a href="#form" class="container--flex campaign__button button--secondary-light  margin--md flex-grow ai--c jc--c"><button>Be Contacted!</button></a>

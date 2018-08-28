@@ -21,21 +21,31 @@ $rmwemail = 'apps@ramseymediaworks.com';
 // Don't edit below unless you have a good reason!
 //---------------------------------------------------
 
-$fullname = $_POST['name'];
-$email = $_POST['content'];
-$phone = $_POST['phone'];
-$address = $_POST['address'];
-$zip = $_POST['zipcode'];
-$city = $_POST['city'];
-$state = $_POST['state'];
-$cdl = $_POST['cdl'];
-$experience = $_POST['experience'];
+function test_input($data) {
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	$fullname = test_input($_POST['name']);
+	$email = test_input($_POST['content']);
+	$phone = test_input($_POST['phone']);
+	$address = test_input($_POST['address']);
+	$zip = test_input($_POST['zipcode']);
+	$city = test_input($_POST['city']);
+	$state = test_input($_POST['state']);
+	$cdl = test_input($_POST['cdl']);
+	$experience = test_input($_POST['experience']);
+	$jobtype = test_input($_POST['job']);
+	$drivertype = test_input($_POST['driver']);
+	$whichPage = test_input($_POST['division']);
+	$pageName = test_input($_POST['pagename']);
+}
+
 $source = $_POST['source'];
 $userIP = $_POST['userIP'];
-$jobtype = $_POST['job'];
-$drivertype = $_POST['driver'];
-$whichPage = $_POST['division'];
-$pageName = $_POST['pagename'];
 
 
 $recruiterphone	= $_POST['recruiterphone'];
@@ -67,11 +77,11 @@ $sql = "INSERT INTO $databaseTable (First, Last, Email, Phone,  City, State, Zip
 // Honeypot Captcha to repel spambots
 $bot = $_POST['email'];
 if (!empty($bot)) {
-	header("Location: $siteURL");
+	$redirect = "Location: $siteURL";
 }
 
-if(empty($fullname)) {  $errors .= "\n Error: First Name Required.";}
-if(empty($email)) {  $errors .= "\n Error: Email required.";}
+if(empty($fullname) || !preg_match("/^[a-zA-Z ]*$/", $fullname)) {  $errors .= "\n Error: A Name is Required.";}
+if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {  $errors .= "\n Error: A Valid Email is Required.";}
 if(empty($phone)) {  $errors .= "\n Error: Phone number required.";}
 
 if ($errors) {
@@ -170,7 +180,7 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 			// After sending and insertion let know it worked, or didn't
 		    if (mysqli_query($link, $sql)) {
 		    	// Redirect to the 'Success' page
-		        header("Location: {$siteURL}/success?source=$source&recruiterphone=$recruiterphone&name=$first");
+		        $redirect = "Location: {$siteURL}/success?source=$source&recruiterphone=$recruiterphone&name=$first";
 		        mysqli_close($link);
 		    } else {
 		        echo "Error: " . mysqli_error($link);
@@ -210,12 +220,12 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 				</PersonalData>
 				<ApplicationData>
 					<AppReferrer>' . $source . '</AppReferrer>
-					<Licenses>
-						<License>
-							<CommercialDriversLicense>'. $cdl . '</CommercialDriversLicense>
-						</License>
-					</Licenses>
 					<DisplayFields>
+						<DisplayField>
+							<DisplayId>cdl</DisplayId>
+							<DisplayPrompt>Valid CDL</DisplayPrompt>
+							<DisplayValue>' . $cdl . '</DisplayValue>
+						</DisplayField>
 						<DisplayField>
 							<DisplayId>experience</DisplayId>
 							<DisplayPrompt>Years of Experience</DisplayPrompt>
@@ -349,7 +359,7 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 			// After sending and insertion let know it worked, or didn't
 		    if (mysqli_query($link, $sql)) {
 		    	// Redirect to the 'Success' page
-		        header("Location: {$siteURL}/success?source=$source&recruiterphone=$recruiterphone&name=$first");
+		        $redirect = "Location: {$siteURL}/success?source=$source&recruiterphone=$recruiterphone&name=$first";
 		        mysqli_close($link);
 		    } else {
 		        echo "Error: " . mysqli_error($link);
@@ -357,7 +367,10 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 		}
 	} else {
 		// Redirect to the 'Error' page
-		header("Location: {$siteURL}errors?error=$errors");
+		$errors = str_replace("\n", '', $errors);
+		$redirect = "Location: {$siteURL}errors?error=$errors";
 	}
+	
+	header($redirect);
 
 ?>

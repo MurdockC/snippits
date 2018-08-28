@@ -34,7 +34,7 @@
 				<!--[if !IE]>-->
 				<input tabindex="7" class="u-full-width" type="hidden" name="city" title="Please enter your city." placeholder="City">
 				<input tabindex="8" class="u-full-width" type="hidden" name="state" title="Please enter your state." placeholder="State/Province">
-				<!--<![endif]-->				
+				<!--<![endif]-->
 				<div>
 					<label for="zipcode">Zip Code</label>
 					<input tabindex="9" class="u-full-width" type="tel" name="zipcode" title="Please enter your zip code." placeholder="Enter your Zip Code" pattern="^\d{5}" required>
@@ -48,14 +48,14 @@
 					<input type="radio" id="cdla" name="cdl" value="cdla" required><label  for="cdla">Class A</label>
 					<input type="radio" id="cdlb" name="cdl" value="cdlb"><label for="cdlb">Class B</label>
 					<input type="radio" id="cdlneither" name="cdl" value="cdlneither"><label for="cdlneither">Neither</label>
-				</div>	
+				</div>
 				<label for="experience">Years of Experience</label>
 				<div class="checkRadioBox">
 					<input type="radio" id="experience1-2" name="experience" value="1-2 years" required><label for="experience1-2">1-2 Years</label>
 					<input type="radio" id="experience3-5" name="experience" value="3-5 years"><label for="experience3-5">3-5 Years</label>
 					<input type="radio" id="experience6-10" name="experience" value="6-10 years"><label for="experience6-10">6-10 Years</label>
 					<input type="radio" id="experience10+" name="experience" value="10+ years"><label for="experience10+">10+ Years</label>
-				</div>	
+				</div>
 				<label for="trailer">Select any trailer's you've had experience with.(select all that apply)</label>
 				<div class="checkRadioBox">
   				<input type="checkbox" id="trailerfb" name="flatbed" value="flatbed"><label for="trailerfb">Flatbed</label>
@@ -64,7 +64,7 @@
 					<input type="checkbox" id="trailerr" name="reefer" value="Reefer"><label for="trailerr">Reefer</label>
 					<input type="checkbox" id="trailerd" name="doubles" value="Doubles"><label for="trailerd">Doubles</label>
 					<input type="checkbox" id="trailert" name="straight" value="Straight Truck"><label for="trailert">Straight Trucks</label>
-				</div>				
+				</div>
 				<div>
 					<input type="hidden" name="source" value="<?php echo $origin; ?>_lead">
 				    <input type="hidden" name="userIP" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>">

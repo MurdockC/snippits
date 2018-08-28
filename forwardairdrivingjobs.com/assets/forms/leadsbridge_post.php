@@ -21,21 +21,24 @@ $rmwemail = 'apps@ramseymediaworks.com';
 // Don't edit below unless you have a good reason!
 //---------------------------------------------------
 
-$fullname = $_POST['full_name'];
-$email = $_POST['email'];
-$phone = $_POST['phone_number'];
-$address = $_POST['address']; // not used
-$zip = $_POST['zip_code'];
-$city = $_POST['city']; // not used
-$state = $_POST['state']; // not used
-$cdl = $_POST['what_type_of_cdl_do_you_have'];
-$experience = $_POST['how_many_years_of_experience_do_you_have?'];
-$source = $_POST['ad_id'];
-$userIP = $_POST['userIP']; // not used
-$jobtype = $_POST['job']; // not used
-$drivertype = $_POST['what_type_of_driver_are_you?'];
-$whichPage = $_POST['adset_id']; 
-$pageName = $_POST['pagename']; // not used
+function test_input($data) {
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	$fullname = test_input($_POST['full_name']);
+	$email = test_input($_POST['email']);
+	$phone = test_input($_POST['phone_number']);
+	$zip = test_input($_POST['zip_code']);
+	$cdl = test_input($_POST['what_type_of_cdl_do_you_have']);
+	$experience = test_input($_POST['how_many_years_of_experience_do_you_have?']);
+	$source = test_input($_POST['ad_id']);
+	$drivertype = test_input($_POST['what_type_of_driver_are_you?']);
+	$whichPage = test_input($_POST['adset_id']); 
+}
 
 
 $recruiterphone	= $_POST['recruiterphone'];
@@ -63,9 +66,8 @@ $db_password = "@||PaG3s";
 $db_name = "_apps";
 $sql = "INSERT INTO $databaseTable (First, Last, Email, Phone,  City, State, Zip, Experience, JobType, DriverType, CDL, Source, PageName, UserIP, Date) VALUES ('$first', '$last', '$email' , '$phone' , '$city' , '$state' , '$zip' ,  '$experience' , '$jobtype' , '$drivertype' , '$cdl' , '$source' , ' $pageName' , '$userIP' , '$date' )";
 
-
-if(empty($fullname)) {  $errors .= "\n Error: First Name Required.";}
-if(empty($email)) {  $errors .= "\n Error: Email required.";}
+if(empty($fullname) || !preg_match("/^[a-zA-Z ]*$/", $fullname)) {  $errors .= "\n Error: A Name is Required.";}
+if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {  $errors .= "\n Error: A Valid Email is Required.";}
 if(empty($phone)) {  $errors .= "\n Error: Phone number required.";}
 
 if ($errors) {
@@ -153,7 +155,7 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 			// After sending and insertion let know it worked, or didn't
 		    if (mysqli_query($link, $sql)) {
 		    	// Redirect to the 'Success' page
-		        header("Location: {$siteURL}/success?source=$source&recruiterphone=$recruiterphone&name=$first");
+		        $redirect = "Location: {$siteURL}/success?source=$source&recruiterphone=$recruiterphone&name=$first";
 		        mysqli_close($link);
 		    } else {
 		        echo "Error: " . mysqli_error($link);
@@ -193,12 +195,12 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 				</PersonalData>
 				<ApplicationData>
 					<AppReferrer>' . $source . '</AppReferrer>
-					<Licenses>
-						<License>
-							<CommercialDriversLicense>'. $cdl . '</CommercialDriversLicense>
-						</License>
-					</Licenses>
 					<DisplayFields>
+						<DisplayField>
+							<DisplayId>cdl</DisplayId>
+							<DisplayPrompt>Valid CDL</DisplayPrompt>
+							<DisplayValue>' . $cdl . '</DisplayValue>
+						</DisplayField>
 						<DisplayField>
 							<DisplayId>experience</DisplayId>
 							<DisplayPrompt>Years of Experience</DisplayPrompt>
@@ -313,16 +315,20 @@ if( empty($errors) && empty($bot) ) // Checks to see if there are errors and tha
 			// After sending and insertion let know it worked, or didn't
 		    if (mysqli_query($link, $sql)) {
 		    	// Redirect to the 'Success' page
-		        header("Location: {$siteURL}assets/forms/leadsbridge_success.html");
+		        $redirect = "Location: {$siteURL}assets/forms/leadsbridge_success.html";
 		        mysqli_close($link);
 		    } else {
-		        echo "Error: " . mysqli_error($link);
-				header("Location: {$siteURL}assets/forms/leadsbridge_error.html");
+		        $errors .= "Error: " . mysqli_error($link);
+		        $errors = str_replace("\n", '', $errors);
+				$redirect = "Location: {$siteURL}assets/forms/leadsbridge_error.html";
 		    }
 		}
 	} else {
 		// Redirect to the 'Error' page
-		header("Location: {$siteURL}assets/forms/leadsbridge_error.html");
+		$errors = str_replace("\n", '', $errors);
+		$redirect = "Location: {$siteURL}assets/forms/leadsbridge_error.html";
 	}
+	
+	header($redirect);
 
 ?>
